@@ -16,9 +16,8 @@ import products from './products.json';
 import reports from './reports.json';
 import reviews from './reviews.json';
 import users from './users.json';
-import workshops from './workshops.json';
 
 export default {
-  users, appointments, notes, products, orders, workshops, moods, goals, reviews, messages,
+  users, appointments, notes, products, orders, moods, goals, reviews, messages,
   notifications, medications, prescriptions, paymentMethods, payouts, orgMembers, reports,
 };

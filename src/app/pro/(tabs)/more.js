@@ -58,8 +58,7 @@ export default function More() {
       </Card>
 
       <Card style={{ marginTop: 16, paddingVertical: 4 }}>
-        <MenuRow icon="storefront-outline" title="Marketplace" onPress={() => router.push('/pro/marketplace')} />
-        <MenuRow icon="easel-outline" title="Workshops" subtitle="Host live events" onPress={() => router.push('/pro/workshops')} />
+        <MenuRow icon="diamond-outline" title="Psych Pro" subtitle="Premium tools for your practice" onPress={() => router.push('/pro/tools')} />
         <MenuRow icon="wallet-outline" title="Earnings" onPress={() => router.push('/pro/earnings')} />
         <MenuRow icon="cash-outline" title="Payouts" subtitle="Bank account and payout history" onPress={() => router.push('/pro/payouts')} />
         <MenuRow icon="receipt-outline" title="Receipts & invoices" onPress={() => router.push('/receipts')} />

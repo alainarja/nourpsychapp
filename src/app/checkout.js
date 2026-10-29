@@ -121,7 +121,7 @@ export default function Checkout() {
           <View style={{ width: 84, height: 84, borderRadius: 42, backgroundColor: colors.successSoft, alignItems: 'center', justifyContent: 'center' }}>
             <Ionicons name="checkmark" size={46} color={colors.success} />
           </View>
-          <Text style={[styles.h1, { marginTop: 18, textAlign: 'center' }]}>{isSession ? 'Session booked' : 'Purchase complete'}</Text>
+          <Text style={[styles.h1, { marginTop: 18, textAlign: 'center' }]}>{isSession ? 'Session booked' : product.category === 'workshop' ? "You're registered" : 'Purchase complete'}</Text>
           <Text style={[styles.muted, { textAlign: 'center', marginTop: 6 }]}>
             {isSession
               ? `${pro.name}\n${longDate(params.date)} at ${timeLabel(params.time)} · ${params.mode === 'in-person' ? 'In-person' : 'Online'}`
@@ -165,12 +165,12 @@ export default function Checkout() {
               <Text style={styles.h3}>{pro.name}</Text>
               <Text style={styles.muted}>{pro.title}</Text>
               <Text style={[styles.body, { marginTop: 4 }]}>{longDate(params.date)} · {timeLabel(params.time)}</Text>
-              <Text style={styles.muted}>{params.mode === 'in-person' ? 'In-person' : 'Online video'} · {pro.sessionLength ?? 50} min</Text>
+              <Text style={styles.muted}>{params.mode === 'in-person' ? 'In-person' : 'Online video'} · {pro.sessionLength ?? 45} min</Text>
             </View>
           </Row>
         ) : (
           <Row gap={12}>
-            <View style={{ width: 70 }}><ProductCover title={product.title} category={product.category} height={80} /></View>
+            <View style={{ width: 70 }}><ProductCover product={product} height={80} /></View>
             <View style={{ flex: 1 }}>
               <Text style={styles.h3}>{product.title}</Text>
               {!!product.subtitle && <Text style={styles.muted}>{product.subtitle}</Text>}

@@ -2,9 +2,8 @@ import { Ionicons } from '@expo/vector-icons';
 import { router } from 'expo-router';
 import { useMemo, useState } from 'react';
 import { Pressable, Text, View } from 'react-native';
-import { Badge, Button, Card, Header, Input, Row, Screen, SectionTitle, StatCard, styles } from '../../components/ui';
+import { Button, Card, Header, Input, Row, Screen, SectionTitle, StatCard, styles } from '../../components/ui';
 import { useAuth } from '../../context/AuthContext';
-import { ASSESSMENTS, bandFor } from '../../data/assessments';
 import { MOODS } from '../../db/actions';
 import { db, useCollection } from '../../db/db';
 import { colors } from '../../theme';
@@ -18,7 +17,6 @@ export default function Journey() {
   const { data: moods } = useCollection('moods');
   const { data: goals } = useCollection('goals');
   const { data: appointments } = useCollection('appointments');
-  const { data: assessments } = useCollection('assessments');
   const { data: medications } = useCollection('medications');
   const activeMeds = useMemo(() => medications.filter((m) => m.clientId === user.id && m.status === 'active').length, [medications, user.id]);
   const [newGoal, setNewGoal] = useState('');
@@ -29,10 +27,6 @@ export default function Journey() {
     [moods, user.id],
   );
   const myGoals = useMemo(() => goals.filter((g) => g.userId === user.id).sort((a, b) => Number(a.done) - Number(b.done)), [goals, user.id]);
-  const myAssessments = useMemo(
-    () => assessments.filter((a) => a.userId === user.id).sort((a, b) => b.createdAt.localeCompare(a.createdAt)),
-    [assessments, user.id],
-  );
   const completed = appointments.filter((a) => a.clientId === user.id && a.status === 'completed').length;
 
   // Latest mood per day for the last 7 days.
@@ -145,30 +139,6 @@ export default function Journey() {
           <Button title="Add" small style={{ height: 50 }} onPress={addGoal} disabled={!newGoal.trim()} />
         </Row>
       </Card>
-
-      <SectionTitle>Self-assessments</SectionTitle>
-      <Row>
-        {Object.values(ASSESSMENTS).map((a) => (
-          <Button key={a.id} small variant="secondary" title={`Take ${a.name}`} style={{ flex: 1 }} onPress={() => router.push(`/assessment/${a.id}`)} />
-        ))}
-      </Row>
-      {myAssessments.length > 0 && (
-        <Card style={{ marginTop: 12 }}>
-          {myAssessments.map((r) => {
-            const a = ASSESSMENTS[r.type];
-            const band = a ? bandFor(a, r.score) : null;
-            return (
-              <Row key={r.id} style={{ paddingVertical: 8, justifyContent: 'space-between' }}>
-                <View>
-                  <Text style={[styles.body, { fontWeight: '600' }]}>{a?.name ?? r.type} · {r.score}</Text>
-                  <Text style={styles.muted}>{shortDate(dateKey(new Date(r.createdAt)))}</Text>
-                </View>
-                {band && <Badge label={band.label} tone={band.tone} />}
-              </Row>
-            );
-          })}
-        </Card>
-      )}
 
       <SectionTitle>Mood history</SectionTitle>
       <Card>

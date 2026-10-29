@@ -3,11 +3,12 @@ import { useState } from 'react';
 import { Text } from 'react-native';
 import { Button, Card, ChipGroup, Header, Input, Screen, SectionTitle, styles } from '../../components/ui';
 import { useAuth } from '../../context/AuthContext';
+import { DEFAULT_SESSION_LENGTH, SESSION_LENGTHS } from '../../db/actions';
 import { notify } from '../../utils/alert';
 import { DEFAULT_SLOTS, timeLabel, WEEKDAYS } from '../../utils/date';
 
 const SLOT_OPTIONS = DEFAULT_SLOTS.map((t) => ({ value: t, label: timeLabel(t) }));
-const LENGTHS = [30, 50, 60, 90].map((n) => ({ value: n, label: `${n} min` }));
+const LENGTHS = SESSION_LENGTHS.map((n) => ({ value: n, label: `${n} min` }));
 const CANCEL_WINDOWS = [12, 24, 48].map((n) => ({ value: n, label: `${n}h` }));
 
 const deviceTimeZone = () => {
@@ -25,7 +26,7 @@ export default function Availability() {
     WEEKDAYS.forEach((_, i) => (a[i] = [...(user?.availability?.[i] ?? [])]));
     return a;
   });
-  const [sessionLength, setSessionLength] = useState(user?.sessionLength ?? 50);
+  const [sessionLength, setSessionLength] = useState(SESSION_LENGTHS.includes(user?.sessionLength) ? user.sessionLength : DEFAULT_SESSION_LENGTH);
   const [price, setPrice] = useState(String(user?.price ?? 60));
   const [cancellationHours, setCancellationHours] = useState(user?.cancellationHours ?? 24);
   const timeZone = deviceTimeZone();

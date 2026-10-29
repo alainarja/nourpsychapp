@@ -73,7 +73,7 @@ export default function ProHome() {
       <Card style={{ marginTop: 16, paddingVertical: 4 }}>
         <MenuRow icon="people-outline" title="My Clients" subtitle="Manage and support your clients" onPress={() => router.push('/pro/clients')} />
         <MenuRow icon="calendar-outline" title="Calendar" subtitle="View and manage your availability" onPress={() => router.push('/pro/calendar')} />
-        <MenuRow icon="briefcase-outline" title="Psych Pro" subtitle="Grow and manage your practice" onPress={() => router.push('/pro/tools')} />
+        <MenuRow icon="briefcase-outline" title="Psych Pro" subtitle="Premium tools for your practice" onPress={() => router.push('/pro/tools')} />
         <MenuRow icon="storefront-outline" title="Marketplace" subtitle="Sell your products and resources" onPress={() => router.push('/pro/marketplace')} />
         <MenuRow icon="wallet-outline" title="Earnings" subtitle="Track your income" onPress={() => router.push('/pro/earnings')} />
         <MenuRow icon="cash-outline" title="Payouts" subtitle="Bank details and payout history" onPress={() => router.push('/pro/payouts')} />

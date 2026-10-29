@@ -7,6 +7,7 @@ export default {
   'tab.clients': 'العملاء',
   'tab.calendar': 'التقويم',
   'tab.tools': 'الأدوات',
+  'tab.marketplace': 'السوق',
   'tab.more': 'المزيد',
 
   'common.save': 'حفظ',

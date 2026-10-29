@@ -13,6 +13,8 @@ export const MOODS = [
 
 export const SPECIALTIES = ['Anxiety', 'Depression', 'Relationships', 'Stress', 'Self-esteem', 'Trauma', 'Family', 'Adolescents', 'Grief', 'ADHD', 'CBT', 'EMDR', 'Life Transitions', 'Medication'];
 export const LANGUAGES = ['English', 'Arabic', 'French', 'Spanish'];
+export const SESSION_LENGTHS = [25, 45];
+export const DEFAULT_SESSION_LENGTH = 45;
 
 // Times a professional is free on a date, excluding booked slots and past times.
 export function availableSlots(pro, key, appointments) {
@@ -111,18 +113,19 @@ export const apptDateTime = (a) => {
 
 export const sortByDateTime = (list, dir = 1) => [...list].sort((a, b) => dir * (apptDateTime(a) - apptDateTime(b)));
 
+// Buying a workshop is how a client registers for it; live workshops are capped by their seats.
 export async function purchaseProduct(product, buyerId, payment = null) {
+  const sold = await db.where('orders', (o) => o.productId === product.id);
+  if (sold.some((o) => o.buyerId === buyerId)) throw new Error('You already have this in My Purchases.');
+  if (product.category === 'workshop' && product.format === 'live' && product.seats && sold.length >= product.seats) {
+    throw new Error('This workshop is fully booked.');
+  }
   const order = await db.insert('orders', { productId: product.id, buyerId, sellerId: product.sellerId, price: product.price, payment });
-  await notifyUser(product.sellerId, { title: 'New order', body: `${await nameOf(buyerId)} bought ${product.title} ($${product.price}).`, type: 'order', link: '/pro/marketplace' });
+  const workshop = product.category === 'workshop';
+  await notifyUser(product.sellerId, {
+    title: workshop ? 'Workshop registration' : 'New order',
+    body: `${await nameOf(buyerId)} ${workshop ? 'registered for' : 'bought'} ${product.title}${product.price ? ` ($${product.price})` : ''}.`,
+    type: workshop ? 'workshop' : 'order', link: '/pro/marketplace',
+  });
   return order;
 }
-
-export async function registerWorkshop(workshop, userId) {
-  const existing = await db.where('registrations', (r) => r.workshopId === workshop.id && r.userId === userId);
-  if (existing.length) return existing[0];
-  const reg = await db.insert('registrations', { workshopId: workshop.id, userId });
-  await notifyUser(workshop.hostId, { title: 'Workshop registration', body: `${await nameOf(userId)} registered for ${workshop.title}.`, type: 'workshop', link: '/pro/workshops' });
-  return reg;
-}
-
-export const unregisterWorkshop = (id) => db.remove('registrations', id);

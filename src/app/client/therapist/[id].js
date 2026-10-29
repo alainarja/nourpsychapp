@@ -103,7 +103,7 @@ export default function TherapistBooking() {
           <Text style={[styles.h2, { fontSize: 20 }]}>{pro.name}</Text>
           <Text style={styles.muted}>{pro.title}</Text>
           <View style={{ marginTop: 4 }}><Rating value={pro.rating} count={pro.reviews != null ? `${pro.reviews} reviews` : null} /></View>
-          <Text style={[styles.muted, { marginTop: 4 }]}>${pro.price} · {pro.sessionLength ?? 50} min session</Text>
+          <Text style={[styles.muted, { marginTop: 4 }]}>${pro.price} · {pro.sessionLength ?? 45} min session</Text>
         </View>
       </Row>
 

@@ -29,7 +29,7 @@ export default function Purchases() {
             return (
               <Card key={o.id} onPress={p ? () => router.push(`/client/product/${p.id}`) : undefined}>
                 <Row gap={12}>
-                  <View style={{ width: 64 }}><ProductCover title={p?.title ?? ''} category={p?.category} height={72} /></View>
+                  <View style={{ width: 64 }}><ProductCover product={p} height={72} /></View>
                   <View style={{ flex: 1 }}>
                     <Text style={styles.h3}>{p?.title ?? 'Removed product'}</Text>
                     <Text style={styles.muted}>Purchased {shortDate(dateKey(new Date(o.createdAt)))}</Text>

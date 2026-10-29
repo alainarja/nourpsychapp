@@ -1,7 +1,7 @@
 import { Ionicons } from '@expo/vector-icons';
 import { router } from 'expo-router';
 import { useState } from 'react';
-import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
+import { ActivityIndicator, Image, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { avatarPalette, colors, fonts, radius, shadow } from '../theme';
 
@@ -35,9 +35,19 @@ export function Header({ title, subtitle, back = false, right, large = true }) {
           )}
           <Text style={[large ? styles.h1 : styles.h2, { flexShrink: 1 }]} numberOfLines={2}>{title}</Text>
         </View>
-        {right}
+        {right ?? <LeafSprig />}
       </View>
       {!!subtitle && <Text style={[styles.subtitle, back && { marginLeft: 32 }]}>{subtitle}</Text>}
+    </View>
+  );
+}
+
+// Small tan leaf cluster used as the mockup's header ornament.
+export function LeafSprig({ size = 22 }) {
+  return (
+    <View style={{ width: size * 1.6, height: size * 1.3 }} pointerEvents="none">
+      <Ionicons name="leaf" size={size} color={colors.tan} style={{ position: 'absolute', left: 0, bottom: 0, transform: [{ rotate: '-35deg' }], opacity: 0.85 }} />
+      <Ionicons name="leaf" size={size * 0.8} color={colors.tan} style={{ position: 'absolute', right: 0, top: 0, transform: [{ rotate: '30deg' }], opacity: 0.6 }} />
     </View>
   );
 }
@@ -100,7 +110,7 @@ export function Button({ title, onPress, variant = 'primary', icon, loading, dis
 const buttonVariants = {
   primary: { box: { backgroundColor: colors.primary }, text: { color: colors.white } },
   tan: { box: { backgroundColor: colors.tan }, text: { color: colors.white } },
-  secondary: { box: { backgroundColor: colors.tanSoft }, text: { color: colors.primary } },
+  secondary: { box: { backgroundColor: colors.card, borderWidth: 1, borderColor: colors.border }, text: { color: colors.primary } },
   outline: { box: { backgroundColor: colors.surface, borderWidth: 1, borderColor: colors.border }, text: { color: colors.primary } },
   danger: { box: { backgroundColor: colors.dangerSoft }, text: { color: colors.danger } },
   ghost: { box: { backgroundColor: 'transparent' }, text: { color: colors.primary } },
@@ -256,32 +266,38 @@ export function EmptyState({ icon = 'leaf-outline', title, message, action, onAc
   );
 }
 
-// Product cover art (no images offline — a styled "book" cover instead)
-export function ProductCover({ title, category, height = 120 }) {
-  const icon = { guides: 'book-outline', cards: 'albums-outline', workshops: 'videocam-outline' }[category] ?? 'document-text-outline';
-  const bg = { guides: '#DCE6F0', cards: '#F1E4D3', workshops: '#E4EDE6' }[category] ?? colors.primarySoft;
+const COVER_ICON = { guide: 'book-outline', worksheets: 'document-text-outline', cards: 'albums-outline', planner: 'calendar-clear-outline', live: 'videocam-outline', recorded: 'play-circle-outline' };
+
+// Product cover art (no images offline): a navy-and-cream "book" for resources, a navy card for workshops.
+export function ProductCover({ product, title = product?.title ?? '', height = 120 }) {
+  const workshop = product?.category === 'workshop';
+  const icon = COVER_ICON[workshop ? product.format : product?.resourceType] ?? 'leaf-outline';
+  const small = height < 100;
   return (
-    <View style={{ height, borderRadius: radius.md, backgroundColor: bg, alignItems: 'center', justifyContent: 'center', padding: 10 }}>
-      <View style={{ width: '62%', height: '86%', backgroundColor: colors.surface, borderRadius: 6, padding: 8, alignItems: 'center', justifyContent: 'center', ...shadow }}>
-        <Ionicons name={icon} size={22} color={colors.primary} />
-        <Text numberOfLines={3} style={{ fontFamily: fonts.serif, fontSize: 10, color: colors.primary, textAlign: 'center', marginTop: 4 }}>{title}</Text>
+    <View style={{ height, borderRadius: radius.md, backgroundColor: colors.sand, alignItems: 'center', justifyContent: 'center', padding: small ? 6 : 10 }}>
+      <View style={[{ width: workshop ? '86%' : '64%', height: '88%', borderRadius: 6, overflow: 'hidden', backgroundColor: workshop ? colors.primary : colors.surface, ...shadow }]}>
+        {!workshop && <View style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: 6, backgroundColor: colors.primary }} />}
+        <View style={{ flex: 1, padding: small ? 4 : 8, paddingLeft: workshop ? 8 : 12, alignItems: 'center', justifyContent: 'center' }}>
+          <Ionicons name={icon} size={small ? 16 : 22} color={workshop ? colors.white : colors.primary} />
+          {!small && (
+            <Text numberOfLines={3} style={{ fontFamily: fonts.serif, fontSize: height > 180 ? 16 : 10, color: workshop ? colors.white : colors.primary, textAlign: 'center', marginTop: 4, fontWeight: '700' }}>
+              {title}
+            </Text>
+          )}
+          <Ionicons name="leaf" size={small ? 8 : 12} color={colors.tan} style={{ marginTop: 4 }} />
+        </View>
       </View>
     </View>
   );
 }
 
+const LOGO = require('../../assets/images/logo.png');
+const LOGO_MARK = require('../../assets/images/logo-mark.png');
+
+// Placeholder artwork cropped from the client's mockup until they send the original logo files.
 export function Logo({ size = 40, tagline = true }) {
-  return (
-    <View style={{ alignItems: 'center' }}>
-      <Row gap={0} style={{ alignItems: 'flex-start' }}>
-        <Text style={{ fontFamily: fonts.serif, fontSize: size, color: colors.primary, fontWeight: '700', lineHeight: size * 1.05, textAlign: 'center' }}>
-          {'Shift\n&Thrive'}
-        </Text>
-        <Ionicons name="leaf" size={size * 0.6} color={colors.tan} style={{ marginLeft: -4, marginTop: -4 }} />
-      </Row>
-      {tagline && <Text style={{ color: colors.muted, fontSize: size * 0.3, marginTop: 4 }}>Shift your path, thrive in life</Text>}
-    </View>
-  );
+  const width = size * 5;
+  return <Image source={tagline ? LOGO : LOGO_MARK} style={{ width, height: width * (tagline ? 0.73 : 0.6), alignSelf: 'center' }} resizeMode="contain" accessibilityLabel="Shift & Thrive" />;
 }
 
 export function Divider({ style }) {
@@ -294,28 +310,28 @@ export const styles = StyleSheet.create({
   header: { marginBottom: 16, marginTop: 4 },
   h1: { fontFamily: fonts.serif, fontSize: 28, color: colors.primary, fontWeight: '700' },
   h2: { fontFamily: fonts.serif, fontSize: 22, color: colors.primary, fontWeight: '700' },
-  h3: { fontSize: 17, color: colors.text, fontWeight: '700' },
+  h3: { fontSize: 17, color: colors.primary, fontWeight: '700' },
   body: { fontSize: 15, color: colors.text, lineHeight: 22 },
   muted: { fontSize: 13, color: colors.muted, lineHeight: 18 },
   label: { fontSize: 13, color: colors.text, fontWeight: '600', marginBottom: 6 },
   subtitle: { fontSize: 14, color: colors.muted, marginTop: 4 },
   link: { color: colors.primary, fontWeight: '600', fontSize: 14 },
   sectionTitle: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginTop: 20, marginBottom: 10 },
-  card: { backgroundColor: colors.surface, borderRadius: radius.lg, padding: 16, borderWidth: 1, borderColor: colors.border, ...shadow },
+  card: { backgroundColor: colors.card, borderRadius: radius.lg, padding: 16, borderWidth: 1, borderColor: colors.border, ...shadow },
   button: { height: 50, borderRadius: radius.md, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', paddingHorizontal: 16 },
   buttonSmall: { height: 38, borderRadius: radius.sm, paddingHorizontal: 12 },
   buttonText: { fontSize: 16, fontWeight: '600' },
-  input: { flexDirection: 'row', alignItems: 'center', backgroundColor: colors.surface, borderWidth: 1, borderColor: colors.border, borderRadius: radius.md, paddingHorizontal: 14, minHeight: 50 },
+  input: { flexDirection: 'row', alignItems: 'center', backgroundColor: colors.card, borderWidth: 1, borderColor: colors.border, borderRadius: radius.md, paddingHorizontal: 14, minHeight: 50 },
   inputText: { flex: 1, fontSize: 15, color: colors.text, paddingVertical: 10, outlineStyle: 'none' },
-  chip: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 14, paddingVertical: 8, borderRadius: radius.pill, backgroundColor: colors.tanSoft },
+  chip: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 14, paddingVertical: 8, borderRadius: radius.pill, backgroundColor: colors.card, borderWidth: 1, borderColor: colors.border },
   chipSmall: { paddingHorizontal: 10, paddingVertical: 5 },
-  chipActive: { backgroundColor: colors.primary },
+  chipActive: { backgroundColor: colors.primary, borderColor: colors.primary },
   chipText: { color: colors.primary, fontWeight: '600', fontSize: 13 },
-  segmented: { flexDirection: 'row', backgroundColor: colors.tanSoft, borderRadius: radius.md, padding: 4 },
+  segmented: { flexDirection: 'row', backgroundColor: colors.card, borderRadius: radius.md, padding: 4, borderWidth: 1, borderColor: colors.border },
   segment: { flex: 1, paddingVertical: 10, borderRadius: radius.sm, alignItems: 'center' },
   segmentActive: { backgroundColor: colors.primary },
   segmentText: { fontWeight: '600', color: colors.primary, fontSize: 14 },
-  tile: { flex: 1, backgroundColor: colors.surface, borderRadius: radius.lg, padding: 14, alignItems: 'center', borderWidth: 1, borderColor: colors.border, minHeight: 128, ...shadow },
+  tile: { flex: 1, backgroundColor: colors.card, borderRadius: radius.lg, padding: 14, alignItems: 'center', borderWidth: 1, borderColor: colors.border, minHeight: 128, ...shadow },
   tileIcon: { width: 48, height: 48, borderRadius: 24, backgroundColor: colors.primarySoft, alignItems: 'center', justifyContent: 'center', marginBottom: 8 },
   tileTitle: { fontWeight: '700', color: colors.primary, fontSize: 14, textAlign: 'center' },
   tileSub: { color: colors.muted, fontSize: 11, textAlign: 'center', marginTop: 2 },
@@ -323,7 +339,7 @@ export const styles = StyleSheet.create({
   menuIcon: { width: 40, height: 40, borderRadius: 12, backgroundColor: colors.primarySoft, alignItems: 'center', justifyContent: 'center' },
   menuTitle: { fontSize: 15, fontWeight: '700', color: colors.primary },
   menuSub: { fontSize: 12, color: colors.muted, marginTop: 2 },
-  stat: { flex: 1, backgroundColor: colors.surface, borderRadius: radius.md, paddingVertical: 14, alignItems: 'center', borderWidth: 1, borderColor: colors.border },
+  stat: { flex: 1, backgroundColor: colors.card, borderRadius: radius.md, paddingVertical: 14, alignItems: 'center', borderWidth: 1, borderColor: colors.border },
   statValue: { fontSize: 22, fontWeight: '700', color: colors.primary },
   statLabel: { fontSize: 11, color: colors.muted, marginTop: 2, textAlign: 'center' },
   empty: { alignItems: 'center', padding: 32 },

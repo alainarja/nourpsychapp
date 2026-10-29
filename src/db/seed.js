@@ -7,7 +7,7 @@ import seedData from './seed-data';
 import { addDays, dateKey } from '../utils/date';
 import { hashPassword } from '../utils/hash';
 
-const SEED_VERSION = 3;
+const SEED_VERSION = 5;
 
 // Seed files keep dates relative to "today" so the demo never goes stale:
 //   "@day:-3"        -> date key 3 days ago        ('YYYY-MM-DD')

@@ -14,8 +14,7 @@ const TILES = [
   { icon: 'search', title: 'Find My Match', subtitle: 'Get matched with a psychologist', href: '/client/find-match' },
   { icon: 'people', title: 'Therapy', subtitle: 'Book and manage sessions', href: '/client/therapy' },
   { icon: 'sparkles', title: 'Mirror AI', subtitle: 'Reflect, learn and grow', href: '/client/mirror' },
-  { icon: 'bag-handle', title: 'Marketplace', subtitle: 'Guides, tools and resources', href: '/client/explore' },
-  { icon: 'easel', title: 'Workshops', subtitle: 'Live and recorded events', href: '/client/workshops' },
+  { icon: 'bag-handle', title: 'Marketplace', subtitle: 'Workshops and digital resources', href: '/client/explore' },
   { icon: 'trending-up', title: 'My Journey', subtitle: 'Track your progress', href: '/client/journey' },
 ];
 

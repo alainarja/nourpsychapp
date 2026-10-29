@@ -65,7 +65,7 @@ src/
 | | Booking → checkout (cards, promo, employer coverage) → receipt | ✅ · 🔌 payment provider |
 | | Therapy tab: join call, cancel (late-cancel warning), reschedule, review | ✅ |
 | | Mirror AI (offline rules + crisis detection) | ✅ · 🔌 real LLM |
-| | Marketplace, workshops, journey, assessments, medications + adherence | ✅ · 🔌 file/video delivery |
+| | Marketplace (Workshops: live / recorded · Digital Resources), journey, medications + adherence | ✅ · 🔌 file/video delivery, live room |
 | Shared | Secure messaging (crisis check on client messages) | ✅ · 🔌 realtime + encryption |
 | | Video call (waiting room, in-call controls) | ✅ UI · 🔌 video SDK |
 | | Notification center + preferences | ✅ in-app · 🔌 push/email/SMS |
@@ -74,7 +74,7 @@ src/
 | Pro | Home stats, clients, client record (notes, assessments), calendar, availability + cancellation policy | ✅ |
 | | License verification (documents → admin review) | ✅ · 🔌 file uploads |
 | | Psychiatrist: medications, e-prescriptions, allergies/conditions | ✅ · 🔌 licensed e-Rx integration |
-| | Marketplace, earnings, payouts (IBAN), reviews (reply / report), workshops, AI assistant, growth | ✅ · 🔌 payouts, AI |
+| | Marketplace tab (workshops + digital resources, commission line pending rate), earnings, payouts (IBAN), reviews (reply / report), Psych Pro premium tools | ✅ · 🔌 payouts, AI |
 | Admin | Dashboard, verifications (approve/reject), users (suspend), moderation reports | ✅ |
 | Org | Dashboard (aggregated + anonymised), members (invite), providers, plan & seats | ✅ · 🔌 invites, billing |
 
@@ -89,7 +89,7 @@ src/
 | reviews | proId, clientId, appointmentId, rating, text, anonymous, reply |
 | notes · assessments · moods · goals · chats · favorites | clinical and wellbeing records |
 | medications · prescriptions · medLogs · medReminders · clinicalProfiles | psychiatry and medication tracking |
-| products · orders · workshops · registrations | marketplace |
+| products (`category`: workshop \| resource) · orders | marketplace — a workshop order is the client's registration |
 | paymentMethods · payouts | billing (cards keep brand / last4 / expiry only) |
 | orgMembers | orgId, userId?, email, department, status, sessionsUsed |
 | reports | type, targetId, reason, status, reporterId |

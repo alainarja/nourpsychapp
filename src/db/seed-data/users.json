@@ -13,7 +13,7 @@
       "Arabic"
     ],
     "price": 60,
-    "sessionLength": 50,
+    "sessionLength": 45,
     "verified": true,
     "verificationStatus": "approved",
     "cancellationHours": 24,
@@ -97,7 +97,7 @@
       "Arabic"
     ],
     "price": 70,
-    "sessionLength": 50,
+    "sessionLength": 45,
     "verified": true,
     "verificationStatus": "approved",
     "cancellationHours": 24,
@@ -177,7 +177,7 @@
       "Arabic"
     ],
     "price": 55,
-    "sessionLength": 50,
+    "sessionLength": 45,
     "verified": true,
     "verificationStatus": "approved",
     "cancellationHours": 24,
@@ -257,7 +257,7 @@
       "Arabic"
     ],
     "price": 65,
-    "sessionLength": 50,
+    "sessionLength": 45,
     "verified": true,
     "verificationStatus": "approved",
     "cancellationHours": 24,
@@ -337,7 +337,7 @@
       "Arabic"
     ],
     "price": 75,
-    "sessionLength": 50,
+    "sessionLength": 45,
     "verified": true,
     "verificationStatus": "approved",
     "cancellationHours": 24,
@@ -417,7 +417,7 @@
       "Arabic"
     ],
     "price": 90,
-    "sessionLength": 30,
+    "sessionLength": 25,
     "verified": true,
     "verificationStatus": "approved",
     "cancellationHours": 24,
@@ -498,7 +498,7 @@
       "Arabic"
     ],
     "price": 50,
-    "sessionLength": 50,
+    "sessionLength": 45,
     "verified": false,
     "verificationStatus": "pending",
     "cancellationHours": 24,
@@ -562,11 +562,6 @@
       {
         "type": "license",
         "name": "license-PSY-31877.pdf",
-        "uploadedAt": "@iso:-2:10:24"
-      },
-      {
-        "type": "id",
-        "name": "national-id.jpg",
         "uploadedAt": "@iso:-2:10:24"
       },
       {

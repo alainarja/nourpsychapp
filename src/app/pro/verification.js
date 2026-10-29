@@ -10,11 +10,9 @@ import { notify } from '../../utils/alert';
 
 const BASE_DOCS = [
   { type: 'license', label: 'Professional license', required: true },
-  { type: 'id', label: 'Government ID', required: true },
   { type: 'degree', label: 'Degree certificate', required: true },
 ];
 const PSYCHIATRIST_DOCS = [{ type: 'medical_council', label: 'Medical council registration', required: true }];
-const OPTIONAL_DOCS = [{ type: 'insurance', label: 'Malpractice insurance', required: false }];
 
 const STEPS = ['Account created', 'Documents uploaded', 'Under review', 'Verified'];
 
@@ -40,7 +38,7 @@ export default function Verification() {
 
   const status = user.verificationStatus ?? 'not_submitted';
   const locked = status === 'pending' || status === 'approved';
-  const checklist = [...BASE_DOCS, ...(user.proType === 'psychiatrist' ? PSYCHIATRIST_DOCS : []), ...OPTIONAL_DOCS];
+  const checklist = [...BASE_DOCS, ...(user.proType === 'psychiatrist' ? PSYCHIATRIST_DOCS : [])];
   const docFor = (type) => docs.find((d) => d.type === type);
   const missing = checklist.filter((c) => c.required && !docFor(c.type));
   const step = stepFor(status, docs.length > 0);

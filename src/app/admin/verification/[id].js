@@ -12,12 +12,11 @@ import { comingSoon, confirm, notify } from '../../../utils/alert';
 
 const CHECKS = [
   { id: 'registry', label: 'License number checked in the national registry' },
-  { id: 'id', label: 'Government ID matches the name on the license' },
   { id: 'degree', label: 'Degree is from an accredited institution' },
   { id: 'current', label: 'License is current (not expired or suspended)' },
 ];
 
-const REJECT_REASONS = ['License number not found in registry', 'Documents unreadable', 'Name mismatch between ID and license', 'License expired'];
+const REJECT_REASONS = ['License number not found in registry', 'Documents unreadable', 'Name mismatch between degree and license', 'License expired'];
 
 export default function VerificationDetail() {
   const { id } = useLocalSearchParams();

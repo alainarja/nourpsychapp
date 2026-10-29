@@ -13,15 +13,15 @@ export default function ProWelcome() {
   return (
     <SafeAreaView style={styles.screen} edges={['bottom']}>
       <Hero />
-      <View style={{ flex: 1, padding: 24, justifyContent: 'space-between' }}>
-        <Text style={{ fontFamily: fonts.serif, fontSize: 24, color: colors.primary, textAlign: 'center', lineHeight: 32 }}>
+      <View style={{ paddingHorizontal: 24, paddingBottom: 16, gap: 18 }}>
+        <Text style={{ fontFamily: fonts.serif, fontSize: 24, fontWeight: '700', color: colors.primary, textAlign: 'center', lineHeight: 32 }}>
           {t('welcome.proTagline')}
         </Text>
         <View style={{ gap: 10 }}>
-          <Button title={t('welcome.psychologist')} onPress={() => go('psychologist')} />
-          <Button title={t('welcome.psychiatrist')} variant="secondary" onPress={() => go('psychiatrist')} />
+          <Button title={t('welcome.psychologist')} onPress={() => go('psychologist')} style={{ borderRadius: 999 }} />
+          <Button title={t('welcome.psychiatrist')} variant="secondary" onPress={() => go('psychiatrist')} style={{ borderRadius: 999 }} />
         </View>
-        <Pressable onPress={() => router.push('/sign-in')}>
+        <Pressable onPress={() => router.push('/sign-in')} hitSlop={8}>
           <Text style={[styles.muted, { textAlign: 'center' }]}>
             {t('welcome.haveAccount')} <Text style={styles.link}>{t('welcome.signIn')}</Text>
           </Text>

@@ -8,6 +8,7 @@ export default {
   'tab.clients': 'Clients',
   'tab.calendar': 'Calendar',
   'tab.tools': 'Tools',
+  'tab.marketplace': 'Marketplace',
   'tab.more': 'More',
 
   'common.save': 'Save',

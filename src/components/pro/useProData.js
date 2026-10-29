@@ -6,6 +6,11 @@ import { addDays } from '../../utils/date';
 
 export const money = (n) => `$${Math.round(n).toLocaleString('en-US')}`;
 
+// Platform cut of each marketplace sale (0–1). null until the client confirms the rate;
+// earnings screens then show the commission as "to be confirmed" and net = gross.
+export const MARKETPLACE_COMMISSION_RATE = null;
+export const commissionOf = (gross) => gross * (MARKETPLACE_COMMISSION_RATE ?? 0);
+
 // Everything a professional's screens need, derived from the live collections.
 export function useProData() {
   const { user } = useAuth();
