@@ -1,0 +1,16 @@
+[
+  {
+    "id": "goal_1",
+    "userId": "client_bella",
+    "title": "Practise 5 minutes of breathing daily",
+    "done": false,
+    "createdAt": "@iso:0:10:24"
+  },
+  {
+    "id": "goal_2",
+    "userId": "client_bella",
+    "title": "Write one thought record this week",
+    "done": true,
+    "createdAt": "@iso:0:10:24"
+  }
+]

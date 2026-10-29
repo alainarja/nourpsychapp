@@ -1,0 +1,23 @@
+[
+  {
+    "id": "mood_1",
+    "userId": "client_bella",
+    "mood": "calm",
+    "note": "",
+    "createdAt": "@iso:-3:10:24"
+  },
+  {
+    "id": "mood_2",
+    "userId": "client_bella",
+    "mood": "stressed",
+    "note": "Deadline at work",
+    "createdAt": "@iso:-2:10:24"
+  },
+  {
+    "id": "mood_3",
+    "userId": "client_bella",
+    "mood": "good",
+    "note": "Walk by the sea",
+    "createdAt": "@iso:-1:10:24"
+  }
+]

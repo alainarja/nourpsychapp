@@ -1,0 +1,62 @@
+[
+  {
+    "id": "ntf_1",
+    "userId": "client_bella",
+    "title": "Session reminder",
+    "body": "Dr. Nour Fayyad · in 5 days at 10:00 AM",
+    "type": "reminder",
+    "link": "/client/therapy",
+    "read": false,
+    "createdAt": "@iso:0:09:00"
+  },
+  {
+    "id": "ntf_2",
+    "userId": "client_bella",
+    "title": "Message from Dr. Nour Fayyad",
+    "body": "How did the breathing exercise go this week?",
+    "type": "message",
+    "link": "/messages/pro_nour",
+    "read": false,
+    "createdAt": "@iso:-1:09:00"
+  },
+  {
+    "id": "ntf_3",
+    "userId": "client_bella",
+    "title": "New workshop",
+    "body": "Managing Stress in Daily Life — register now",
+    "type": "workshop",
+    "link": "/client/workshops",
+    "read": true,
+    "createdAt": "@iso:-3:09:00"
+  },
+  {
+    "id": "ntf_4",
+    "userId": "pro_nour",
+    "title": "Message from Sara K.",
+    "body": "I finished my thought records. Can I send them before our session?",
+    "type": "message",
+    "link": "/messages/client_sara",
+    "read": false,
+    "createdAt": "@iso:-1:09:00"
+  },
+  {
+    "id": "ntf_5",
+    "userId": "pro_nour",
+    "title": "New order",
+    "body": "Sara K. bought CBT Worksheets Pack ($25).",
+    "type": "order",
+    "link": "/pro/marketplace",
+    "read": true,
+    "createdAt": "@iso:-5:09:00"
+  },
+  {
+    "id": "ntf_6",
+    "userId": "admin_1",
+    "title": "Verification request",
+    "body": "Yara S. submitted documents for review.",
+    "type": "verification",
+    "link": "/admin/verifications",
+    "read": false,
+    "createdAt": "@iso:-2:09:00"
+  }
+]

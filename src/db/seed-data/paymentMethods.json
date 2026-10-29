@@ -1,0 +1,12 @@
+[
+  {
+    "id": "pm_1",
+    "userId": "client_bella",
+    "brand": "Visa",
+    "last4": "4242",
+    "expiry": "08/28",
+    "holder": "Bella",
+    "isDefault": true,
+    "createdAt": "@iso:-90:10:00"
+  }
+]

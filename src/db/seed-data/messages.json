@@ -1,0 +1,38 @@
+[
+  {
+    "id": "msg_1",
+    "threadId": "client_bella__pro_nour",
+    "fromId": "client_bella",
+    "toId": "pro_nour",
+    "text": "Hi Dr. Nour, looking forward to our session next week.",
+    "read": true,
+    "createdAt": "@iso:-2:09:00"
+  },
+  {
+    "id": "msg_2",
+    "threadId": "client_bella__pro_nour",
+    "fromId": "pro_nour",
+    "toId": "client_bella",
+    "text": "Hi Bella! Me too. Before then, try noting moments you feel stressed and what triggered them.",
+    "read": true,
+    "createdAt": "@iso:-2:11:00"
+  },
+  {
+    "id": "msg_3",
+    "threadId": "client_bella__pro_nour",
+    "fromId": "pro_nour",
+    "toId": "client_bella",
+    "text": "How did the breathing exercise go this week?",
+    "read": false,
+    "createdAt": "@iso:-1:16:00"
+  },
+  {
+    "id": "msg_4",
+    "threadId": "client_sara__pro_nour",
+    "fromId": "client_sara",
+    "toId": "pro_nour",
+    "text": "I finished my thought records. Can I send them before our session?",
+    "read": false,
+    "createdAt": "@iso:-1:18:00"
+  }
+]

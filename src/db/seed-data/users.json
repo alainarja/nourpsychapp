@@ -1,0 +1,747 @@
+[
+  {
+    "id": "pro_nour",
+    "role": "pro",
+    "password": "@hash:demo123",
+    "proType": "psychologist",
+    "sessionTypes": [
+      "online",
+      "in-person"
+    ],
+    "languages": [
+      "English",
+      "Arabic"
+    ],
+    "price": 60,
+    "sessionLength": 50,
+    "verified": true,
+    "verificationStatus": "approved",
+    "cancellationHours": 24,
+    "availability": {
+      "0": [],
+      "1": [
+        "10:00",
+        "11:00",
+        "12:00",
+        "14:00",
+        "15:00",
+        "16:00"
+      ],
+      "2": [
+        "10:00",
+        "11:00",
+        "12:00",
+        "14:00",
+        "15:00",
+        "16:00"
+      ],
+      "3": [
+        "10:00",
+        "11:00",
+        "12:00",
+        "14:00",
+        "15:00",
+        "16:00"
+      ],
+      "4": [
+        "10:00",
+        "11:00",
+        "12:00",
+        "14:00",
+        "15:00",
+        "16:00"
+      ],
+      "5": [
+        "10:00",
+        "11:00",
+        "12:00"
+      ],
+      "6": []
+    },
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "emailVerified": true,
+    "consentedAt": "2026-01-01T00:00:00.000Z",
+    "consents": {
+      "terms": true,
+      "privacy": true,
+      "telehealth": true,
+      "dataProcessing": true
+    },
+    "name": "Dr. Nour Fayyad",
+    "email": "nour@demo.com",
+    "title": "Clinical Psychologist",
+    "license": "PSY-20417",
+    "rating": 4.9,
+    "reviews": 48,
+    "about": "I use a warm, collaborative approach to help clients understand themselves and create meaningful change.",
+    "specialties": [
+      "Anxiety",
+      "Self-esteem",
+      "Relationships",
+      "Stress",
+      "Adolescents",
+      "CBT"
+    ]
+  },
+  {
+    "id": "pro_sarah",
+    "role": "pro",
+    "password": null,
+    "proType": "psychologist",
+    "sessionTypes": [
+      "online",
+      "in-person"
+    ],
+    "languages": [
+      "English",
+      "Arabic"
+    ],
+    "price": 70,
+    "sessionLength": 50,
+    "verified": true,
+    "verificationStatus": "approved",
+    "cancellationHours": 24,
+    "availability": {
+      "0": [],
+      "1": [
+        "10:00",
+        "11:00",
+        "12:00",
+        "14:00",
+        "15:00",
+        "16:00"
+      ],
+      "2": [
+        "10:00",
+        "11:00",
+        "12:00",
+        "14:00",
+        "15:00",
+        "16:00"
+      ],
+      "3": [
+        "10:00",
+        "11:00",
+        "12:00",
+        "14:00",
+        "15:00",
+        "16:00"
+      ],
+      "4": [
+        "10:00",
+        "11:00",
+        "12:00",
+        "14:00",
+        "15:00",
+        "16:00"
+      ],
+      "5": [
+        "10:00",
+        "11:00",
+        "12:00"
+      ],
+      "6": []
+    },
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "emailVerified": true,
+    "consentedAt": "2026-01-01T00:00:00.000Z",
+    "consents": {
+      "terms": true,
+      "privacy": true,
+      "telehealth": true,
+      "dataProcessing": true
+    },
+    "name": "Dr. Sarah Khalil",
+    "email": "sarah@demo.com",
+    "title": "Clinical Psychologist",
+    "rating": 4.9,
+    "reviews": 120,
+    "about": "Evidence-based CBT for anxiety and self-esteem. I help clients build practical skills they can use every day.",
+    "specialties": [
+      "CBT",
+      "Anxiety",
+      "Self-esteem",
+      "Relationships"
+    ]
+  },
+  {
+    "id": "pro_omar",
+    "role": "pro",
+    "password": null,
+    "proType": "psychologist",
+    "sessionTypes": [
+      "online"
+    ],
+    "languages": [
+      "English",
+      "Arabic"
+    ],
+    "price": 55,
+    "sessionLength": 50,
+    "verified": true,
+    "verificationStatus": "approved",
+    "cancellationHours": 24,
+    "availability": {
+      "0": [],
+      "1": [
+        "10:00",
+        "11:00",
+        "12:00",
+        "14:00",
+        "15:00",
+        "16:00"
+      ],
+      "2": [
+        "10:00",
+        "11:00",
+        "12:00",
+        "14:00",
+        "15:00",
+        "16:00"
+      ],
+      "3": [
+        "10:00",
+        "11:00",
+        "12:00",
+        "14:00",
+        "15:00",
+        "16:00"
+      ],
+      "4": [
+        "10:00",
+        "11:00",
+        "12:00",
+        "14:00",
+        "15:00",
+        "16:00"
+      ],
+      "5": [
+        "10:00",
+        "11:00",
+        "12:00"
+      ],
+      "6": []
+    },
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "emailVerified": true,
+    "consentedAt": "2026-01-01T00:00:00.000Z",
+    "consents": {
+      "terms": true,
+      "privacy": true,
+      "telehealth": true,
+      "dataProcessing": true
+    },
+    "name": "Omar R.",
+    "email": "omar.r@demo.com",
+    "title": "Clinical Psychologist",
+    "rating": 4.8,
+    "reviews": 86,
+    "about": "Supporting adults through stress, burnout and big life transitions.",
+    "specialties": [
+      "Stress",
+      "Life Transitions",
+      "Depression"
+    ]
+  },
+  {
+    "id": "pro_layla",
+    "role": "pro",
+    "password": null,
+    "proType": "psychologist",
+    "sessionTypes": [
+      "online",
+      "in-person"
+    ],
+    "languages": [
+      "English",
+      "Arabic"
+    ],
+    "price": 65,
+    "sessionLength": 50,
+    "verified": true,
+    "verificationStatus": "approved",
+    "cancellationHours": 24,
+    "availability": {
+      "0": [],
+      "1": [
+        "10:00",
+        "11:00",
+        "12:00",
+        "14:00",
+        "15:00",
+        "16:00"
+      ],
+      "2": [
+        "10:00",
+        "11:00",
+        "12:00",
+        "14:00",
+        "15:00",
+        "16:00"
+      ],
+      "3": [
+        "10:00",
+        "11:00",
+        "12:00",
+        "14:00",
+        "15:00",
+        "16:00"
+      ],
+      "4": [
+        "10:00",
+        "11:00",
+        "12:00",
+        "14:00",
+        "15:00",
+        "16:00"
+      ],
+      "5": [
+        "10:00",
+        "11:00",
+        "12:00"
+      ],
+      "6": []
+    },
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "emailVerified": true,
+    "consentedAt": "2026-01-01T00:00:00.000Z",
+    "consents": {
+      "terms": true,
+      "privacy": true,
+      "telehealth": true,
+      "dataProcessing": true
+    },
+    "name": "Layla M.",
+    "email": "layla.m@demo.com",
+    "title": "Clinical Psychologist",
+    "rating": 4.9,
+    "reviews": 96,
+    "about": "Working with adolescents and families to improve communication and emotional wellbeing.",
+    "specialties": [
+      "Adolescents",
+      "Family",
+      "Relationships"
+    ]
+  },
+  {
+    "id": "pro_nadine",
+    "role": "pro",
+    "password": null,
+    "proType": "psychologist",
+    "sessionTypes": [
+      "online",
+      "in-person"
+    ],
+    "languages": [
+      "English",
+      "Arabic"
+    ],
+    "price": 75,
+    "sessionLength": 50,
+    "verified": true,
+    "verificationStatus": "approved",
+    "cancellationHours": 24,
+    "availability": {
+      "0": [],
+      "1": [
+        "10:00",
+        "11:00",
+        "12:00",
+        "14:00",
+        "15:00",
+        "16:00"
+      ],
+      "2": [
+        "10:00",
+        "11:00",
+        "12:00",
+        "14:00",
+        "15:00",
+        "16:00"
+      ],
+      "3": [
+        "10:00",
+        "11:00",
+        "12:00",
+        "14:00",
+        "15:00",
+        "16:00"
+      ],
+      "4": [
+        "10:00",
+        "11:00",
+        "12:00",
+        "14:00",
+        "15:00",
+        "16:00"
+      ],
+      "5": [
+        "10:00",
+        "11:00",
+        "12:00"
+      ],
+      "6": []
+    },
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "emailVerified": true,
+    "consentedAt": "2026-01-01T00:00:00.000Z",
+    "consents": {
+      "terms": true,
+      "privacy": true,
+      "telehealth": true,
+      "dataProcessing": true
+    },
+    "name": "Nadine T.",
+    "email": "nadine.t@demo.com",
+    "title": "Clinical Psychologist",
+    "rating": 4.8,
+    "reviews": 72,
+    "about": "Trauma-informed therapist trained in EMDR. A safe, paced space to process difficult experiences.",
+    "specialties": [
+      "Trauma",
+      "EMDR",
+      "Anxiety"
+    ]
+  },
+  {
+    "id": "pro_karim",
+    "role": "pro",
+    "password": "@hash:demo123",
+    "proType": "psychiatrist",
+    "sessionTypes": [
+      "online",
+      "in-person"
+    ],
+    "languages": [
+      "English",
+      "Arabic"
+    ],
+    "price": 90,
+    "sessionLength": 30,
+    "verified": true,
+    "verificationStatus": "approved",
+    "cancellationHours": 24,
+    "availability": {
+      "0": [],
+      "1": [
+        "10:00",
+        "11:00",
+        "12:00",
+        "14:00",
+        "15:00",
+        "16:00"
+      ],
+      "2": [
+        "10:00",
+        "11:00",
+        "12:00",
+        "14:00",
+        "15:00",
+        "16:00"
+      ],
+      "3": [
+        "10:00",
+        "11:00",
+        "12:00",
+        "14:00",
+        "15:00",
+        "16:00"
+      ],
+      "4": [
+        "10:00",
+        "11:00",
+        "12:00",
+        "14:00",
+        "15:00",
+        "16:00"
+      ],
+      "5": [
+        "10:00",
+        "11:00",
+        "12:00"
+      ],
+      "6": []
+    },
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "emailVerified": true,
+    "consentedAt": "2026-01-01T00:00:00.000Z",
+    "consents": {
+      "terms": true,
+      "privacy": true,
+      "telehealth": true,
+      "dataProcessing": true
+    },
+    "name": "Dr. Karim Haddad",
+    "email": "karim.h@demo.com",
+    "title": "Psychiatrist",
+    "rating": 4.7,
+    "reviews": 64,
+    "about": "Psychiatric assessment and medication management for depression, anxiety, ADHD and bipolar disorder.",
+    "specialties": [
+      "Depression",
+      "ADHD",
+      "Bipolar",
+      "Medication"
+    ]
+  },
+  {
+    "id": "pro_yara",
+    "role": "pro",
+    "password": null,
+    "proType": "psychologist",
+    "sessionTypes": [
+      "online",
+      "in-person"
+    ],
+    "languages": [
+      "English",
+      "Arabic"
+    ],
+    "price": 50,
+    "sessionLength": 50,
+    "verified": false,
+    "verificationStatus": "pending",
+    "cancellationHours": 24,
+    "availability": {
+      "0": [],
+      "1": [
+        "10:00",
+        "11:00",
+        "12:00",
+        "14:00",
+        "15:00",
+        "16:00"
+      ],
+      "2": [
+        "10:00",
+        "11:00",
+        "12:00",
+        "14:00",
+        "15:00",
+        "16:00"
+      ],
+      "3": [
+        "10:00",
+        "11:00",
+        "12:00",
+        "14:00",
+        "15:00",
+        "16:00"
+      ],
+      "4": [
+        "10:00",
+        "11:00",
+        "12:00",
+        "14:00",
+        "15:00",
+        "16:00"
+      ],
+      "5": [
+        "10:00",
+        "11:00",
+        "12:00"
+      ],
+      "6": []
+    },
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "emailVerified": true,
+    "consentedAt": "2026-01-01T00:00:00.000Z",
+    "consents": {
+      "terms": true,
+      "privacy": true,
+      "telehealth": true,
+      "dataProcessing": true
+    },
+    "name": "Yara S.",
+    "email": "yara.s@demo.com",
+    "title": "Counselling Psychologist",
+    "license": "PSY-31877",
+    "rating": null,
+    "reviews": 0,
+    "verificationDocs": [
+      {
+        "type": "license",
+        "name": "license-PSY-31877.pdf",
+        "uploadedAt": "@iso:-2:10:24"
+      },
+      {
+        "type": "id",
+        "name": "national-id.jpg",
+        "uploadedAt": "@iso:-2:10:24"
+      },
+      {
+        "type": "degree",
+        "name": "msc-counselling.pdf",
+        "uploadedAt": "@iso:-2:10:24"
+      }
+    ],
+    "about": "Person-centred counselling for young adults.",
+    "specialties": [
+      "Anxiety",
+      "Life Transitions"
+    ]
+  },
+  {
+    "id": "admin_1",
+    "role": "admin",
+    "name": "Platform Admin",
+    "email": "admin@demo.com",
+    "password": "@hash:demo123",
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "emailVerified": true,
+    "consentedAt": "2026-01-01T00:00:00.000Z",
+    "consents": {
+      "terms": true,
+      "privacy": true,
+      "telehealth": true,
+      "dataProcessing": true
+    }
+  },
+  {
+    "id": "org_acme",
+    "role": "org",
+    "name": "Acme Corp",
+    "contactName": "Rania (HR)",
+    "email": "hr@acme.demo",
+    "password": "@hash:demo123",
+    "plan": "growth",
+    "seats": 50,
+    "sessionsPerMember": 6,
+    "proIds": [
+      "pro_nour",
+      "pro_sarah",
+      "pro_karim"
+    ],
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "emailVerified": true,
+    "consentedAt": "2026-01-01T00:00:00.000Z",
+    "consents": {
+      "terms": true,
+      "privacy": true,
+      "telehealth": true,
+      "dataProcessing": true
+    }
+  },
+  {
+    "id": "client_bella",
+    "role": "client",
+    "name": "Bella",
+    "email": "bella@demo.com",
+    "password": "@hash:demo123",
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "emailVerified": true,
+    "consentedAt": "2026-01-01T00:00:00.000Z",
+    "consents": {
+      "terms": true,
+      "privacy": true,
+      "telehealth": true,
+      "dataProcessing": true
+    },
+    "orgId": "org_acme"
+  },
+  {
+    "id": "client_sara",
+    "role": "client",
+    "name": "Sara K.",
+    "email": "client_sara@demo.com",
+    "password": null,
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "emailVerified": true,
+    "consentedAt": "2026-01-01T00:00:00.000Z",
+    "consents": {
+      "terms": true,
+      "privacy": true,
+      "telehealth": true,
+      "dataProcessing": true
+    },
+    "concern": "Anxiety",
+    "approach": "CBT"
+  },
+  {
+    "id": "client_omar",
+    "role": "client",
+    "name": "Omar R.",
+    "email": "client_omar@demo.com",
+    "password": null,
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "emailVerified": true,
+    "consentedAt": "2026-01-01T00:00:00.000Z",
+    "consents": {
+      "terms": true,
+      "privacy": true,
+      "telehealth": true,
+      "dataProcessing": true
+    },
+    "concern": "Stress",
+    "approach": "CBT"
+  },
+  {
+    "id": "client_layla",
+    "role": "client",
+    "name": "Layla M.",
+    "email": "client_layla@demo.com",
+    "password": null,
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "emailVerified": true,
+    "consentedAt": "2026-01-01T00:00:00.000Z",
+    "consents": {
+      "terms": true,
+      "privacy": true,
+      "telehealth": true,
+      "dataProcessing": true
+    },
+    "concern": "Self-esteem"
+  },
+  {
+    "id": "client_hadi",
+    "role": "client",
+    "name": "Hadi T.",
+    "email": "client_hadi@demo.com",
+    "password": null,
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "emailVerified": true,
+    "consentedAt": "2026-01-01T00:00:00.000Z",
+    "consents": {
+      "terms": true,
+      "privacy": true,
+      "telehealth": true,
+      "dataProcessing": true
+    },
+    "concern": "Depression"
+  },
+  {
+    "id": "client_nadine",
+    "role": "client",
+    "name": "Nadine T.",
+    "email": "client_nadine@demo.com",
+    "password": null,
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "emailVerified": true,
+    "consentedAt": "2026-01-01T00:00:00.000Z",
+    "consents": {
+      "terms": true,
+      "privacy": true,
+      "telehealth": true,
+      "dataProcessing": true
+    },
+    "concern": "Trauma",
+    "approach": "EMDR"
+  },
+  {
+    "id": "client_rami",
+    "role": "client",
+    "name": "Rami S.",
+    "email": "client_rami@demo.com",
+    "password": null,
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "emailVerified": true,
+    "consentedAt": "2026-01-01T00:00:00.000Z",
+    "consents": {
+      "terms": true,
+      "privacy": true,
+      "telehealth": true,
+      "dataProcessing": true
+    },
+    "concern": "Grief"
+  }
+]

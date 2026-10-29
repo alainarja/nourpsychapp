@@ -1,0 +1,14 @@
+[
+  {
+    "id": "rx_1",
+    "clientId": "client_hadi",
+    "proId": "pro_karim",
+    "medication": "Sertraline",
+    "dose": "50 mg",
+    "quantity": 30,
+    "refills": 2,
+    "pharmacy": "City Pharmacy",
+    "status": "sent",
+    "createdAt": "@iso:-10:10:00"
+  }
+]

@@ -1,0 +1,11 @@
+[
+  {
+    "id": "rep_1",
+    "type": "review",
+    "targetId": "rev_3",
+    "reason": "Possibly identifying information",
+    "status": "open",
+    "reporterId": "pro_sarah",
+    "createdAt": "@iso:-4:10:00"
+  }
+]

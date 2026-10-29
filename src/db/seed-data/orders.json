@@ -1,0 +1,26 @@
+[
+  {
+    "id": "ord_1",
+    "productId": "prod_6",
+    "buyerId": "client_sara",
+    "sellerId": "pro_nour",
+    "price": 25,
+    "createdAt": "@iso:-5:10:24"
+  },
+  {
+    "id": "ord_2",
+    "productId": "prod_5",
+    "buyerId": "client_hadi",
+    "sellerId": "pro_nour",
+    "price": 40,
+    "createdAt": "@iso:-9:10:24"
+  },
+  {
+    "id": "ord_3",
+    "productId": "prod_7",
+    "buyerId": "client_layla",
+    "sellerId": "pro_nour",
+    "price": 15,
+    "createdAt": "@iso:-12:10:24"
+  }
+]

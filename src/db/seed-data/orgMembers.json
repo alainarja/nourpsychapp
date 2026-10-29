@@ -1,0 +1,53 @@
+[
+  {
+    "id": "om_1",
+    "orgId": "org_acme",
+    "name": "Bella",
+    "email": "bella@demo.com",
+    "userId": "client_bella",
+    "department": "Design",
+    "status": "active",
+    "sessionsUsed": 2,
+    "createdAt": "@iso:-60:10:00"
+  },
+  {
+    "id": "om_2",
+    "orgId": "org_acme",
+    "name": "Karim A.",
+    "email": "karim.a@acme.demo",
+    "department": "Engineering",
+    "status": "active",
+    "sessionsUsed": 4,
+    "createdAt": "@iso:-50:10:00"
+  },
+  {
+    "id": "om_3",
+    "orgId": "org_acme",
+    "name": "Lina F.",
+    "email": "lina.f@acme.demo",
+    "department": "Sales",
+    "status": "active",
+    "sessionsUsed": 1,
+    "createdAt": "@iso:-45:10:00"
+  },
+  {
+    "id": "om_4",
+    "orgId": "org_acme",
+    "name": "Jad M.",
+    "email": "jad.m@acme.demo",
+    "department": "Engineering",
+    "status": "invited",
+    "sessionsUsed": 0,
+    "createdAt": "@iso:-3:10:00"
+  },
+  {
+    "id": "om_5",
+    "orgId": "org_acme",
+    "name": "Maya K.",
+    "email": "maya.k@acme.demo",
+    "department": "Finance",
+    "status": "invited",
+    "sessionsUsed": 0,
+    "createdAt": "@iso:-1:10:00"
+  }
+]

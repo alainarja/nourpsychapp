@@ -1,0 +1,37 @@
+[
+  {
+    "id": "med_1",
+    "clientId": "client_hadi",
+    "proId": "pro_karim",
+    "name": "Sertraline",
+    "dose": "50 mg",
+    "frequency": "Once daily (morning)",
+    "startDate": "@day:-60",
+    "status": "active",
+    "instructions": "Take with food.",
+    "createdAt": "@iso:-60:10:00"
+  },
+  {
+    "id": "med_2",
+    "clientId": "client_hadi",
+    "proId": "pro_karim",
+    "name": "Melatonin",
+    "dose": "3 mg",
+    "frequency": "At bedtime as needed",
+    "startDate": "@day:-30",
+    "status": "active",
+    "createdAt": "@iso:-30:10:00"
+  },
+  {
+    "id": "med_3",
+    "clientId": "client_bella",
+    "proId": "pro_karim",
+    "name": "Escitalopram",
+    "dose": "10 mg",
+    "frequency": "Once daily",
+    "startDate": "@day:-30",
+    "status": "active",
+    "instructions": "Review in 6 weeks.",
+    "createdAt": "@iso:-30:10:00"
+  }
+]
