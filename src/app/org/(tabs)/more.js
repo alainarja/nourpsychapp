@@ -28,7 +28,7 @@ export default function OrgMore() {
     notify('Profile saved');
   };
 
-  const doSignOut = () => confirm('Sign out?', '', async () => {
+  const doSignOut = () => confirm('Sign out?', 'You can sign back in anytime.', async () => {
     await signOut();
     router.replace('/welcome');
   }, 'Sign out');

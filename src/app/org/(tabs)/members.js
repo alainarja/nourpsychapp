@@ -99,7 +99,7 @@ export default function Members() {
               <Text style={[styles.body, { fontWeight: '600' }]}>{m.name}</Text>
               <Text style={styles.muted} numberOfLines={1}>{m.email} · {m.department}</Text>
               {m.status === 'active' ? (
-                <Text style={styles.muted}>{m.sessionsUsed ?? 0} sessions used (of {perMember})</Text>
+                <Text style={styles.muted}>{m.sessionsUsed ?? 0} {(m.sessionsUsed ?? 0) === 1 ? 'session' : 'sessions'} used (of {perMember})</Text>
               ) : (
                 <Text style={styles.muted}>Invited {new Date(m.lastInvitedAt ?? m.createdAt).toLocaleDateString()}</Text>
               )}

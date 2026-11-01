@@ -17,6 +17,7 @@ export default {
   'common.done': 'Done',
   'common.back': 'Back',
   'common.signOut': 'Sign out',
+  'common.signOutMsg': 'You can sign back in anytime.',
   'common.settings': 'Settings',
   'common.notifications': 'Notifications',
   'common.messages': 'Messages',

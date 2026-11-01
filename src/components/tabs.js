@@ -12,6 +12,8 @@ export function useTabScreenOptions() {
     tabBarActiveTintColor: colors.primary,
     tabBarInactiveTintColor: colors.muted,
     tabBarLabelPosition: 'below-icon',
+    // Otherwise Android lifts the bar above the keyboard and squeezes chat/search screens.
+    tabBarHideOnKeyboard: true,
     tabBarStyle: {
       backgroundColor: colors.surface,
       borderTopColor: colors.border,

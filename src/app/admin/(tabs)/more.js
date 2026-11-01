@@ -10,7 +10,7 @@ export default function AdminMore() {
   const { user, signOut } = useAuth();
   if (!user) return null;
 
-  const doSignOut = () => confirm('Sign out?', '', async () => {
+  const doSignOut = () => confirm('Sign out?', 'You can sign back in anytime.', async () => {
     await signOut();
     router.replace('/welcome');
   }, 'Sign out');

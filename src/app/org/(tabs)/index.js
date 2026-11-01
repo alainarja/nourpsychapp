@@ -78,9 +78,8 @@ export default function OrgDashboard() {
         {s.active >= MIN_GROUP ? (
           <BarRow label="Members who have used care" value={s.membersUsingCare} max={s.active} suffix={` / ${s.active}`} color={colors.success} />
         ) : (
-          <Text style={[styles.muted, { marginBottom: 6 }]}>Member engagement appears once {MIN_GROUP} or more members are active.</Text>
+          <Text style={styles.muted}>Member engagement appears once {MIN_GROUP} or more members are active, to protect anonymity.</Text>
         )}
-        <Text style={styles.muted}>Engagement counts are shown only when at least {MIN_GROUP} members are active, to protect anonymity.</Text>
       </Card>
 
       <SectionTitle>Members by department</SectionTitle>

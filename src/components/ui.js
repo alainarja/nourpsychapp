@@ -159,7 +159,7 @@ export function ChipGroup({ options, value, onChange, multi, scroll, small }) {
   };
   const chips = options.map((o) => <Chip key={o.value} label={o.label} small={small} active={isActive(o)} onPress={onChange ? () => toggle(o) : undefined} />);
   return scroll ? (
-    <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ gap: 8, paddingVertical: 4 }}>{chips}</ScrollView>
+    <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ flexGrow: 0, flexShrink: 0 }} contentContainerStyle={{ gap: 8, paddingVertical: 4 }}>{chips}</ScrollView>
   ) : (
     <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8 }}>{chips}</View>
   );

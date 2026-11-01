@@ -31,7 +31,7 @@ export default function ProHome() {
       <Row style={{ justifyContent: 'space-between', marginTop: 8, marginBottom: 18 }}>
         <View style={{ flex: 1 }}>
           <Text style={[styles.muted, { fontSize: 16 }]}>{greeting()},</Text>
-          <Text style={{ fontFamily: fonts.serif, fontSize: 28, fontWeight: '700', color: colors.primary }} numberOfLines={1}>{user.name}</Text>
+          <Text style={{ fontFamily: fonts.serif, fontSize: 28, fontWeight: '700', color: colors.primary }} numberOfLines={2}>{user.name}</Text>
         </View>
         <Row gap={8}>
           <MessagesButton />

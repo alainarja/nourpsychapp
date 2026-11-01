@@ -23,7 +23,7 @@ export default function More() {
   const status = user.verificationStatus ?? (user.verified ? 'approved' : 'not_submitted');
   const [statusLabel, statusTone] = VERIFICATION[status] ?? VERIFICATION.not_submitted;
 
-  const logout = () => confirm(`${t('common.signOut')}?`, '', async () => {
+  const logout = () => confirm(`${t('common.signOut')}?`, t('common.signOutMsg'), async () => {
     await signOut();
     router.replace('/welcome');
   }, t('common.signOut'));

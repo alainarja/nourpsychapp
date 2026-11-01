@@ -22,7 +22,7 @@ export default function Profile() {
   };
 
   const logout = () =>
-    confirm(`${t('common.signOut')}?`, '', async () => {
+    confirm(`${t('common.signOut')}?`, t('common.signOutMsg'), async () => {
       await signOut();
       router.replace('/welcome');
     }, t('common.signOut'));

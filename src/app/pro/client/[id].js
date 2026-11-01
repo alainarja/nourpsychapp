@@ -83,8 +83,8 @@ export default function ClientRecord() {
 
       {isPsychiatrist ? (
         <View style={{ marginBottom: 14 }}>
+          {/* Wraps instead of scrolling so Prescriptions is never hidden off-screen. */}
           <ChipGroup
-            scroll
             value={tab}
             onChange={setTab}
             options={[

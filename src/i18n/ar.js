@@ -16,6 +16,7 @@ export default {
   'common.done': 'تم',
   'common.back': 'رجوع',
   'common.signOut': 'تسجيل الخروج',
+  'common.signOutMsg': 'يمكنك تسجيل الدخول مجدداً في أي وقت.',
   'common.settings': 'الإعدادات',
   'common.notifications': 'الإشعارات',
   'common.messages': 'الرسائل',

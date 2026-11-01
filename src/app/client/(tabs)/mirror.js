@@ -85,7 +85,7 @@ export default function Mirror() {
         </ScrollView>
 
         {messages.length > 0 && (
-          <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ gap: 8, paddingHorizontal: 16, paddingBottom: 8 }} style={{ flexGrow: 0 }}>
+          <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ gap: 8, paddingHorizontal: 16, paddingBottom: 8 }} style={{ flexGrow: 0, flexShrink: 0 }}>
             {QUICK_PROMPTS.map((p) => (
               <Pressable key={p} onPress={() => send(p)} style={{ paddingHorizontal: 12, paddingVertical: 7, borderRadius: radius.pill, backgroundColor: colors.tanSoft }}>
                 <Text style={{ color: colors.primary, fontSize: 12, fontWeight: '600' }}>{p}</Text>
