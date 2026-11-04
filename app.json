@@ -46,6 +46,12 @@
         "projectId": "baecb8bf-70dd-44db-a16a-3a36feef37d6"
       }
     },
-    "owner": "alainarja"
+    "owner": "alainarja",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/baecb8bf-70dd-44db-a16a-3a36feef37d6"
+    }
   }
 }
