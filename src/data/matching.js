@@ -76,6 +76,8 @@ export const QUIZ_DEFAULTS = {
 };
 
 const sameCity = (a, b) => !!a && !!b && a.trim().toLowerCase() === b.trim().toLowerCase();
+// 'a', 'a and b', 'a, b and c'
+const listOf = (items) => (items.length > 1 ? `${items.slice(0, -1).join(', ')} and ${items.at(-1)}` : items[0]);
 const labelOf = (list, value) => list.find((o) => o.value === value)?.label ?? value;
 
 // Splits the answers into requirements (clinical suitability, per the questionnaire's matching note)
@@ -94,7 +96,7 @@ function checks(pro, a) {
   const concerns = a.concerns.filter((c) => c !== ANY);
   if (concerns.length) {
     overlap = concerns.filter((c) => (pro.specialties ?? []).includes(c));
-    required.push(overlap.length ? `specialises in ${overlap.join(' and ')}` : null);
+    required.push(overlap.length ? `specialises in ${listOf(overlap)}` : null);
   }
 
   if (a.gender && a.gender !== ANY) preferred.push(pro.gender === a.gender ? `${a.gender} therapist` : null);
