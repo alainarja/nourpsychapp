@@ -189,7 +189,6 @@ export default {
   'privacy.notGiven': 'Not given',
   'privacy.sharing': 'Sharing',
   'privacy.shareMoods': 'Share moods & journal with my therapist',
-  'privacy.shareAssessments': 'Share assessment results with my therapist',
   'privacy.research': 'Contribute to anonymised research',
   'privacy.download': 'Download my data',
   'privacy.download.sub': 'Get a copy of everything stored about you.',

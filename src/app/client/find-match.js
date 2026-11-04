@@ -4,10 +4,11 @@ import { useMemo, useState } from 'react';
 import { Pressable, Text, View } from 'react-native';
 import { Avatar, Card, ChipGroup, EmptyState, Header, Input, Rating, Row, Screen, Segmented, styles } from '../../components/ui';
 import { useAuth } from '../../context/AuthContext';
+import { SPECIALTIES } from '../../data/matching';
 import { db, useCollection } from '../../db/db';
 import { colors } from '../../theme';
 
-const FILTERS = ['All', 'Favorites', 'Anxiety', 'Depression', 'Relationships', 'Stress', 'Trauma', 'Family', 'Adolescents', 'ADHD'].map((v) => ({ value: v, label: v }));
+const FILTERS = ['All', 'Favorites', ...SPECIALTIES].map((v) => ({ value: v, label: v }));
 
 export default function FindMatch() {
   const { user } = useAuth();

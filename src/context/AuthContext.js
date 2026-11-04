@@ -74,7 +74,8 @@ export function AuthProvider({ children }) {
     const proDefaults = role === 'pro'
       ? {
           rating: null, reviews: 0, verified: false, verificationStatus: 'not_submitted', price: 60, sessionLength: 45, about: '',
-          specialties: [], languages: ['English'], sessionTypes: ['online'], cancellationHours: 24,
+          specialties: [], services: [], ageGroups: [], modalities: [], gender: null, location: '',
+          languages: ['English'], sessionTypes: ['online'], cancellationHours: 24,
           availability: { 0: [], 1: ['10:00', '11:00', '14:00', '15:00'], 2: ['10:00', '11:00', '14:00', '15:00'], 3: ['10:00', '11:00', '14:00', '15:00'], 4: ['10:00', '11:00', '14:00', '15:00'], 5: [], 6: [] },
         }
       : {};

@@ -178,7 +178,6 @@ export default {
   'privacy.notGiven': 'لم تُمنح',
   'privacy.sharing': 'المشاركة',
   'privacy.shareMoods': 'مشاركة المزاج واليوميات مع معالجي',
-  'privacy.shareAssessments': 'مشاركة نتائج التقييمات مع معالجي',
   'privacy.research': 'المساهمة في أبحاث مجهولة الهوية',
   'privacy.download': 'تنزيل بياناتي',
   'privacy.download.sub': 'احصل على نسخة من كل ما هو مخزن عنك.',

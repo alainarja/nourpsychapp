@@ -3,7 +3,8 @@ import { useState } from 'react';
 import { Pressable, Text, View } from 'react-native';
 import { Avatar, Badge, Button, Card, ChipGroup, Header, Input, Rating, Row, Screen, SectionTitle, styles } from '../../components/ui';
 import { useAuth } from '../../context/AuthContext';
-import { LANGUAGES, SPECIALTIES } from '../../db/actions';
+import { AGE_GROUPS, GENDERS, MODALITIES, SERVICES, SPECIALTIES } from '../../data/matching';
+import { LANGUAGES } from '../../db/actions';
 import { colors } from '../../theme';
 import { comingSoon, notify } from '../../utils/alert';
 
@@ -19,6 +20,11 @@ export default function ProProfile() {
     specialties: user?.specialties ?? [],
     languages: user?.languages ?? [],
     sessionTypes: user?.sessionTypes ?? [],
+    location: user?.location ?? '',
+    gender: user?.gender ?? null,
+    services: user?.services ?? [],
+    ageGroups: user?.ageGroups ?? [],
+    modalities: user?.modalities ?? [],
     price: String(user?.price ?? 60),
   }));
   const [busy, setBusy] = useState(false);
@@ -31,8 +37,9 @@ export default function ProProfile() {
     if (!form.name.trim()) return notify('Name required');
     if (!Number.isFinite(price) || price < 0) return notify('Invalid price');
     if (!form.sessionTypes.length) return notify('Choose at least one session type');
+    if (form.sessionTypes.includes('in-person') && !form.location.trim()) return notify('Add the city where you see clients in person');
     setBusy(true);
-    await updateProfile({ ...form, name: form.name.trim(), title: form.title.trim(), about: form.about.trim(), price });
+    await updateProfile({ ...form, name: form.name.trim(), title: form.title.trim(), about: form.about.trim(), location: form.location.trim(), price });
     setBusy(false);
     notify('Profile saved');
     router.back();
@@ -63,13 +70,25 @@ export default function ProProfile() {
 
       <Input label="About me" multiline value={form.about} onChangeText={set('about')} placeholder="Describe your approach and who you help…" />
 
+      <Text style={[styles.muted, { marginTop: 8 }]}>These details are used to match you with clients in Find My Match.</Text>
+      <SectionTitle>Gender</SectionTitle>
+      <ChipGroup options={GENDERS} value={form.gender} onChange={set('gender')} />
       <SectionTitle>Specialties</SectionTitle>
       <ChipGroup small multi options={toOptions(SPECIALTIES)} value={form.specialties} onChange={set('specialties')} />
+      <SectionTitle>Services provided</SectionTitle>
+      <ChipGroup small multi options={toOptions(SERVICES)} value={form.services} onChange={set('services')} />
+      <SectionTitle>Age groups treated</SectionTitle>
+      <ChipGroup small multi options={AGE_GROUPS} value={form.ageGroups} onChange={set('ageGroups')} />
+      <SectionTitle>Therapeutic approaches</SectionTitle>
+      <ChipGroup small multi options={MODALITIES} value={form.modalities} onChange={set('modalities')} />
       <SectionTitle>Languages</SectionTitle>
       <ChipGroup small multi options={toOptions(LANGUAGES)} value={form.languages} onChange={set('languages')} />
       <SectionTitle>Session type</SectionTitle>
       <ChipGroup multi options={SESSION_TYPES} value={form.sessionTypes} onChange={set('sessionTypes')} />
       <View style={{ height: 12 }} />
+      {form.sessionTypes.includes('in-person') && (
+        <Input label="City for in-person sessions" icon="location-outline" placeholder="e.g. Beirut" value={form.location} onChangeText={set('location')} />
+      )}
       <Input label="Session price (USD)" icon="cash-outline" keyboardType="numeric" value={form.price} onChangeText={set('price')} />
 
       <SectionTitle>How clients see you</SectionTitle>

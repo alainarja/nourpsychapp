@@ -2,86 +2,48 @@ import { Ionicons } from '@expo/vector-icons';
 import { router } from 'expo-router';
 import { useMemo, useState } from 'react';
 import { Text, View } from 'react-native';
-import { Avatar, Badge, Button, Card, ChipGroup, Header, Rating, Row, Screen, styles } from '../../components/ui';
+import { Avatar, Badge, Button, Card, ChipGroup, Header, Input, Rating, Row, Screen, styles } from '../../components/ui';
 import { useAuth } from '../../context/AuthContext';
-import { LANGUAGES } from '../../db/actions';
+import { ANY, QUIZ, QUIZ_DEFAULTS, findMatches } from '../../data/matching';
 import { useCollection } from '../../db/db';
 import { colors, radius } from '../../theme';
 
-const CONCERNS = ['Anxiety', 'Depression', 'Stress', 'Relationships', 'Self-esteem', 'Trauma', 'Family', 'Grief', 'ADHD', 'Life Transitions', 'Medication'];
-const opts = (list) => list.map((v) => ({ value: v, label: v }));
+const capitalize = (s) => s.charAt(0).toUpperCase() + s.slice(1);
+const MAX_REASONS = 4;
 
-const STEPS = [
-  { key: 'concerns', title: 'What brings you here?', hint: 'Choose all that apply.', multi: true, options: opts(CONCERNS) },
-  {
-    key: 'type', title: 'What kind of support?', hint: 'Psychiatrists can prescribe medication; psychologists focus on talking therapy.',
-    options: [{ value: 'psychologist', label: 'Talking therapy (psychologist)' }, { value: 'psychiatrist', label: 'Medication support (psychiatrist)' }, { value: 'any', label: "I'm not sure" }],
-  },
-  { key: 'mode', title: 'How would you like to meet?', options: [{ value: 'online', label: 'Online' }, { value: 'in-person', label: 'In-person' }, { value: 'any', label: 'Either' }] },
-  { key: 'languages', title: 'Which languages are you comfortable in?', multi: true, options: opts(LANGUAGES) },
-  { key: 'budget', title: "What's your budget per session?", options: [{ value: 50, label: 'Up to $50' }, { value: 75, label: 'Up to $75' }, { value: 100, label: 'Up to $100' }, { value: 0, label: 'Any' }] },
-];
-
-const DEFAULTS = { concerns: [], type: 'any', mode: 'any', languages: ['English'], budget: 0 };
-
-// Weighted score out of 100 plus human-readable reasons.
-function scorePro(pro, a) {
-  const reasons = [];
-  let score = 0;
-  const specs = pro.specialties ?? [];
-
-  const overlap = a.concerns.filter((c) => specs.includes(c));
-  score += a.concerns.length ? (overlap.length / a.concerns.length) * 40 : 20;
-  if (overlap.length) reasons.push(`helps with ${overlap.slice(0, 2).join(' & ')}`);
-
-  if (a.type === 'any' || pro.proType === a.type) {
-    score += 15;
-    if (a.type !== 'any') reasons.push(a.type === 'psychiatrist' ? 'can prescribe' : 'talking therapy');
-  }
-
-  const modes = pro.sessionTypes ?? ['online'];
-  if (a.mode === 'any' || modes.includes(a.mode)) {
-    score += 15;
-    if (a.mode !== 'any') reasons.push(a.mode === 'online' ? 'offers online' : 'offers in-person');
-  }
-
-  const langs = a.languages.filter((l) => pro.languages?.includes(l));
-  if (!a.languages.length || langs.length) {
-    score += 15;
-    const nonEnglish = langs.filter((l) => l !== 'English');
-    if (nonEnglish.length) reasons.push(`speaks ${nonEnglish.join(', ')}`);
-  }
-
-  if (!a.budget || (pro.price ?? 0) <= a.budget) {
-    score += 10;
-    if (a.budget) reasons.push(`within budget ($${pro.price})`);
-  }
-
-  score += ((pro.rating ?? 4) / 5) * 3 + (pro.verified ? 2 : 0);
-  return { score: Math.round(Math.min(score, 100)), reasons };
+// "Other / Not sure" is exclusive, and at most `max` concerns can be picked.
+function nextConcerns(prev, next, max) {
+  const added = next.find((v) => !prev.includes(v));
+  if (added === ANY) return [ANY];
+  const picked = next.filter((v) => v !== ANY);
+  return picked.length > max ? prev : picked;
 }
 
 export default function MatchQuiz() {
   const { user, updateProfile } = useAuth();
   const { data: users } = useCollection('users');
-  const [answers, setAnswers] = useState({ ...DEFAULTS, ...(user.matchPrefs ?? {}) });
+  // Answers saved by the old 5-question quiz don't fit these questions, so they're ignored.
+  const [answers, setAnswers] = useState(() => {
+    const saved = user.matchPrefs?.version === 2 ? user.matchPrefs : {};
+    const { version, ...rest } = saved;
+    return { ...QUIZ_DEFAULTS, ...rest };
+  });
   const [step, setStep] = useState(0);
-  const done = step >= STEPS.length;
+  const done = step >= QUIZ.length;
 
-  const results = useMemo(() => {
-    if (!done) return [];
-    return users
-      .filter((u) => u.role === 'pro' && !u.suspended)
-      .map((pro) => ({ pro, ...scorePro(pro, answers) }))
-      .sort((a, b) => b.score - a.score)
-      .slice(0, 5);
+  const { exact, results } = useMemo(() => {
+    if (!done) return { exact: true, results: [] };
+    return findMatches(users.filter((u) => u.role === 'pro' && !u.suspended), answers);
   }, [done, users, answers]);
 
-  const current = STEPS[step];
-  const canNext = !current?.multi || current.key !== 'concerns' || answers.concerns.length > 0;
+  const current = QUIZ[step];
+  const value = answers[current?.key];
+  const canNext = current?.multi ? value.length > 0 : value != null;
+
+  const change = (v) => setAnswers((a) => ({ ...a, [current.key]: current.multi ? nextConcerns(a[current.key], v, current.max) : v }));
 
   const next = async () => {
-    if (step === STEPS.length - 1) await updateProfile({ matchPrefs: answers });
+    if (step === QUIZ.length - 1) await updateProfile({ matchPrefs: { ...answers, version: 2 } });
     setStep((s) => s + 1);
   };
 
@@ -89,25 +51,35 @@ export default function MatchQuiz() {
     return (
       <Screen>
         <Header title="Your matches" subtitle="Based on what you told us. You can always browse everyone." back />
+        {!exact && (
+          <Card style={{ marginBottom: 12, backgroundColor: colors.tanSoft, borderColor: colors.tanSoft }}>
+            <Text style={styles.body}>No one matches all of your answers yet. These are the closest professionals.</Text>
+          </Card>
+        )}
         <View style={{ gap: 12 }}>
-          {results.map(({ pro, score, reasons }, i) => (
+          {results.map(({ pro, reasons }, i) => (
             <Card key={pro.id} onPress={() => router.push(`/client/therapist/${pro.id}`)}>
               <Row gap={12}>
                 <Avatar name={pro.name} size={52} />
                 <View style={{ flex: 1 }}>
                   <Row style={{ justifyContent: 'space-between' }}>
                     <Text style={[styles.h3, { flexShrink: 1 }]}>{pro.name}</Text>
-                    <Badge label={`${score}% match`} tone={i === 0 ? 'success' : 'primary'} />
+                    {i === 0 && exact && <Badge label="Best match" tone="success" />}
                   </Row>
                   <Text style={styles.muted}>{pro.title} · ${pro.price}</Text>
                   <View style={{ marginTop: 4 }}><Rating value={pro.rating} count={pro.reviews} /></View>
                 </View>
               </Row>
               {reasons.length > 0 && (
-                <Row style={{ marginTop: 10, alignItems: 'flex-start' }} gap={6}>
-                  <Ionicons name="sparkles-outline" size={14} color={colors.tan} style={{ marginTop: 2 }} />
-                  <Text style={[styles.muted, { flex: 1 }]}>Why: {reasons.join(', ')}</Text>
-                </Row>
+                <View style={{ marginTop: 10, gap: 4 }}>
+                  {reasons.slice(0, MAX_REASONS).map((r) => (
+                    <Row key={r} gap={6} style={{ alignItems: 'flex-start' }}>
+                      <Ionicons name="checkmark-circle-outline" size={14} color={colors.tan} style={{ marginTop: 2 }} />
+                      <Text style={[styles.muted, { flex: 1 }]}>{capitalize(r)}</Text>
+                    </Row>
+                  ))}
+                  {reasons.length > MAX_REASONS && <Text style={[styles.muted, { marginLeft: 20 }]}>+{reasons.length - MAX_REASONS} more</Text>}
+                </View>
               )}
             </Card>
           ))}
@@ -123,26 +95,32 @@ export default function MatchQuiz() {
       footer={
         <View style={{ padding: 16, paddingBottom: 24, flexDirection: 'row', gap: 10 }}>
           {step > 0 && <Button title="Back" variant="outline" style={{ flex: 1 }} onPress={() => setStep((s) => s - 1)} />}
-          <Button title={step === STEPS.length - 1 ? 'See my matches' : 'Next'} style={{ flex: 2 }} disabled={!canNext} onPress={next} />
+          <Button title={step === QUIZ.length - 1 ? 'See my matches' : 'Next'} style={{ flex: 2 }} disabled={!canNext} onPress={next} />
         </View>
       }
     >
       <Header title="Find your match" back />
       <View style={{ height: 6, borderRadius: radius.pill, backgroundColor: colors.tanSoft, overflow: 'hidden', marginBottom: 6 }}>
-        <View style={{ width: `${((step + 1) / STEPS.length) * 100}%`, height: '100%', backgroundColor: colors.primary }} />
+        <View style={{ width: `${((step + 1) / QUIZ.length) * 100}%`, height: '100%', backgroundColor: colors.primary }} />
       </View>
-      <Text style={styles.muted}>Step {step + 1} of {STEPS.length}</Text>
+      <Text style={styles.muted}>Step {step + 1} of {QUIZ.length}</Text>
 
       <Text style={[styles.h2, { marginTop: 20 }]}>{current.title}</Text>
       {!!current.hint && <Text style={[styles.muted, { marginTop: 4 }]}>{current.hint}</Text>}
       <View style={{ marginTop: 18 }}>
-        <ChipGroup
-          multi={current.multi}
-          options={current.options}
-          value={answers[current.key]}
-          onChange={(v) => setAnswers((a) => ({ ...a, [current.key]: v }))}
-        />
+        <ChipGroup multi={current.multi} options={current.options} value={value} onChange={change} />
       </View>
+      {current.key === 'mode' && answers.mode === 'in-person' && (
+        <View style={{ marginTop: 18 }}>
+          <Input
+            label="Preferred city or area"
+            icon="location-outline"
+            placeholder="e.g. Beirut"
+            value={answers.city}
+            onChangeText={(city) => setAnswers((a) => ({ ...a, city }))}
+          />
+        </View>
+      )}
       <Text style={[styles.muted, { marginTop: 24 }]}>Your answers stay on this device and are only used to suggest professionals.</Text>
     </Screen>
   );

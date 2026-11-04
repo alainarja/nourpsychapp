@@ -4,9 +4,10 @@ import { Button, Card, Header, MenuRow, Screen, styles } from '../components/ui'
 import { colors } from '../theme';
 
 // Lebanon-first list (Arabic/English audience); extend per country once we know the user's region.
+const EMBRACE = '1564';
 const LINES = [
   { name: 'Emergency services', detail: 'Immediate danger to life', phone: '112' },
-  { name: 'Embrace Lifeline (Lebanon)', detail: 'Emotional support & suicide prevention, 24/7', phone: '1564' },
+  { name: 'Embrace Lifeline (Lebanon)', detail: 'Emotional support & suicide prevention, 24/7', phone: EMBRACE },
   { name: 'International directory', detail: 'Find a helpline in your country', url: 'https://findahelpline.com' },
 ];
 
@@ -18,11 +19,11 @@ export default function Crisis() {
         <View style={{ flexDirection: 'row', gap: 10 }}>
           <Ionicons name="alert-circle" size={22} color={colors.danger} />
           <Text style={[styles.body, { flex: 1 }]}>
-            If you are thinking about harming yourself or someone else, or you are in immediate danger, call emergency services now.
+            If you are thinking about harming yourself or someone else, or you are in immediate danger, call Embrace Lifeline now.
             Shift & Thrive is not an emergency service.
           </Text>
         </View>
-        <Button title="Call emergency services (112)" icon="call" variant="primary" style={{ marginTop: 14, backgroundColor: colors.danger }} onPress={() => Linking.openURL('tel:112')} />
+        <Button title={`Call Embrace Lifeline (${EMBRACE})`} icon="call" variant="primary" style={{ marginTop: 14, backgroundColor: colors.danger }} onPress={() => Linking.openURL(`tel:${EMBRACE}`)} />
       </Card>
 
       <Card style={{ marginTop: 16, paddingVertical: 4 }}>
