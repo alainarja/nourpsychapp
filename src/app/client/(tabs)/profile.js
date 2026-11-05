@@ -66,7 +66,6 @@ export default function Profile() {
         <MenuRow icon="calendar-outline" title="My Sessions" subtitle="Upcoming and past sessions" onPress={() => router.push('/client/therapy')} />
         <MenuRow icon="chatbubble-ellipses-outline" title={t('common.messages')} subtitle="Talk with your therapist" onPress={() => router.push('/messages')} />
         <MenuRow icon="medkit-outline" title="My medications" subtitle="Prescriptions and reminders" onPress={() => router.push('/client/medications')} />
-        <MenuRow icon="clipboard-outline" title="Self-assessments" subtitle="PHQ-9 and GAD-7" onPress={() => router.push('/client/journey')} />
         <MenuRow icon="sparkles-outline" title="Find my match quiz" subtitle="Get matched with the right professional" onPress={() => router.push('/client/match-quiz')} />
       </Card>
 

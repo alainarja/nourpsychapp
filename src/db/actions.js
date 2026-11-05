@@ -11,7 +11,6 @@ export const MOODS = [
   { value: 'sad', label: 'Sad', emoji: '😢', color: '#B9CDE6' },
 ];
 
-export const SPECIALTIES = ['Anxiety', 'Depression', 'Relationships', 'Stress', 'Self-esteem', 'Trauma', 'Family', 'Adolescents', 'Grief', 'ADHD', 'CBT', 'EMDR', 'Life Transitions', 'Medication'];
 export const LANGUAGES = ['English', 'Arabic', 'French', 'Spanish'];
 export const SESSION_LENGTHS = [25, 45];
 export const DEFAULT_SESSION_LENGTH = 45;

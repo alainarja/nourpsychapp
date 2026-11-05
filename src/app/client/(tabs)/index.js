@@ -112,7 +112,7 @@ export default function ClientHome() {
             </View>
             <View style={{ flex: 1 }}>
               <Text style={styles.h3}>Not sure who to choose?</Text>
-              <Text style={styles.muted}>Take the 1-minute match quiz</Text>
+              <Text style={styles.muted}>Take the 2-minute match quiz</Text>
             </View>
             <Ionicons name="chevron-forward" size={18} color={colors.faint} />
           </Row>

@@ -8,10 +8,12 @@
       "online",
       "in-person"
     ],
+    "location": "Beirut",
     "languages": [
       "English",
       "Arabic"
     ],
+    "gender": "female",
     "price": 60,
     "sessionLength": 45,
     "verified": true,
@@ -75,12 +77,24 @@
     "reviews": 48,
     "about": "I use a warm, collaborative approach to help clients understand themselves and create meaningful change.",
     "specialties": [
-      "Anxiety",
-      "Self-esteem",
-      "Relationships",
-      "Stress",
-      "Adolescents",
-      "CBT"
+      "Anxiety, stress & worry",
+      "Self-esteem & confidence",
+      "Relationships & attachment",
+      "Emotional regulation & anger"
+    ],
+    "services": [
+      "Individual therapy",
+      "Couples therapy",
+      "Child or adolescent therapy"
+    ],
+    "ageGroups": [
+      "adolescents",
+      "young-adults",
+      "adults"
+    ],
+    "modalities": [
+      "CBT",
+      "Integrative"
     ]
   },
   {
@@ -92,10 +106,12 @@
       "online",
       "in-person"
     ],
+    "location": "Beirut",
     "languages": [
       "English",
       "Arabic"
     ],
+    "gender": "female",
     "price": 70,
     "sessionLength": 45,
     "verified": true,
@@ -158,10 +174,23 @@
     "reviews": 120,
     "about": "Evidence-based CBT for anxiety and self-esteem. I help clients build practical skills they can use every day.",
     "specialties": [
+      "Anxiety, stress & worry",
+      "Self-esteem & confidence",
+      "Relationships & attachment",
+      "OCD & intrusive thoughts"
+    ],
+    "services": [
+      "Individual therapy",
+      "Psychological assessment"
+    ],
+    "ageGroups": [
+      "young-adults",
+      "adults",
+      "older-adults"
+    ],
+    "modalities": [
       "CBT",
-      "Anxiety",
-      "Self-esteem",
-      "Relationships"
+      "ACT"
     ]
   },
   {
@@ -172,10 +201,12 @@
     "sessionTypes": [
       "online"
     ],
+    "location": "",
     "languages": [
       "English",
       "Arabic"
     ],
+    "gender": "male",
     "price": 55,
     "sessionLength": 45,
     "verified": true,
@@ -238,9 +269,22 @@
     "reviews": 86,
     "about": "Supporting adults through stress, burnout and big life transitions.",
     "specialties": [
-      "Stress",
-      "Life Transitions",
-      "Depression"
+      "Anxiety, stress & worry",
+      "Life transitions & personal growth",
+      "Depression & low mood",
+      "Grief & loss"
+    ],
+    "services": [
+      "Individual therapy"
+    ],
+    "ageGroups": [
+      "young-adults",
+      "adults",
+      "older-adults"
+    ],
+    "modalities": [
+      "ACT",
+      "Psychodynamic"
     ]
   },
   {
@@ -252,10 +296,12 @@
       "online",
       "in-person"
     ],
+    "location": "Jounieh",
     "languages": [
       "English",
       "Arabic"
     ],
+    "gender": "female",
     "price": 65,
     "sessionLength": 45,
     "verified": true,
@@ -318,9 +364,24 @@
     "reviews": 96,
     "about": "Working with adolescents and families to improve communication and emotional wellbeing.",
     "specialties": [
-      "Adolescents",
-      "Family",
-      "Relationships"
+      "Family & parenting",
+      "Relationships & attachment",
+      "Emotional regulation & anger",
+      "Eating disorders & body image"
+    ],
+    "services": [
+      "Family therapy",
+      "Child or adolescent therapy",
+      "Individual therapy"
+    ],
+    "ageGroups": [
+      "children",
+      "adolescents",
+      "adults"
+    ],
+    "modalities": [
+      "DBT",
+      "Integrative"
     ]
   },
   {
@@ -332,10 +393,12 @@
       "online",
       "in-person"
     ],
+    "location": "Beirut",
     "languages": [
       "English",
       "Arabic"
     ],
+    "gender": "female",
     "price": 75,
     "sessionLength": 45,
     "verified": true,
@@ -398,9 +461,20 @@
     "reviews": 72,
     "about": "Trauma-informed therapist trained in EMDR. A safe, paced space to process difficult experiences.",
     "specialties": [
-      "Trauma",
-      "EMDR",
-      "Anxiety"
+      "Trauma & PTSD",
+      "Anxiety, stress & worry",
+      "Grief & loss"
+    ],
+    "services": [
+      "Individual therapy"
+    ],
+    "ageGroups": [
+      "young-adults",
+      "adults"
+    ],
+    "modalities": [
+      "Psychodynamic",
+      "Integrative"
     ]
   },
   {
@@ -412,10 +486,12 @@
       "online",
       "in-person"
     ],
+    "location": "Beirut",
     "languages": [
       "English",
       "Arabic"
     ],
+    "gender": "male",
     "price": 90,
     "sessionLength": 25,
     "verified": true,
@@ -478,10 +554,23 @@
     "reviews": 64,
     "about": "Psychiatric assessment and medication management for depression, anxiety, ADHD and bipolar disorder.",
     "specialties": [
-      "Depression",
-      "ADHD",
-      "Bipolar",
-      "Medication"
+      "Depression & low mood",
+      "ADHD & attention difficulties",
+      "Anxiety, stress & worry",
+      "Emotional regulation & anger"
+    ],
+    "services": [
+      "Psychiatric consultation",
+      "Psychological assessment"
+    ],
+    "ageGroups": [
+      "adolescents",
+      "young-adults",
+      "adults",
+      "older-adults"
+    ],
+    "modalities": [
+      "Integrative"
     ]
   },
   {
@@ -493,10 +582,12 @@
       "online",
       "in-person"
     ],
+    "location": "Tripoli",
     "languages": [
       "English",
       "Arabic"
     ],
+    "gender": "female",
     "price": 50,
     "sessionLength": 45,
     "verified": false,
@@ -572,8 +663,18 @@
     ],
     "about": "Person-centred counselling for young adults.",
     "specialties": [
-      "Anxiety",
-      "Life Transitions"
+      "Anxiety, stress & worry",
+      "Life transitions & personal growth",
+      "Self-esteem & confidence"
+    ],
+    "services": [
+      "Individual therapy"
+    ],
+    "ageGroups": [
+      "young-adults"
+    ],
+    "modalities": [
+      "ACT"
     ]
   },
   {

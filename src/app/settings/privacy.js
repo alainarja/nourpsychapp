@@ -102,12 +102,7 @@ export default function Privacy() {
 
       <SettingsSection title={t('privacy.sharing')}>
         <Card>
-          {isClient && (
-            <>
-              <ToggleRow title={t('privacy.shareMoods')} value={privacy.shareMoods} onChange={(v) => setPrivacy({ shareMoods: v })} />
-              <ToggleRow title={t('privacy.shareAssessments')} value={privacy.shareAssessments} onChange={(v) => setPrivacy({ shareAssessments: v })} />
-            </>
-          )}
+          {isClient && <ToggleRow title={t('privacy.shareMoods')} value={privacy.shareMoods} onChange={(v) => setPrivacy({ shareMoods: v })} />}
           <ToggleRow
             title={t('privacy.research')}
             value={consents.research}
