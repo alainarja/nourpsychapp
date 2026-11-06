@@ -4,7 +4,7 @@ import { useMemo, useState } from 'react';
 import { Pressable, Text, View } from 'react-native';
 import { Avatar, Card, ChipGroup, EmptyState, Header, Input, Rating, Row, Screen, Segmented, styles } from '../../components/ui';
 import { useAuth } from '../../context/AuthContext';
-import { SPECIALTIES } from '../../data/matching';
+import { QUIZ, SPECIALTIES } from '../../data/matching';
 import { db, useCollection } from '../../db/db';
 import { colors } from '../../theme';
 
@@ -44,7 +44,7 @@ export default function FindMatch() {
           <Ionicons name="sparkles" size={20} color={colors.white} />
           <View style={{ flex: 1 }}>
             <Text style={{ color: colors.white, fontWeight: '700', fontSize: 15 }}>Take the match quiz</Text>
-            <Text style={{ color: 'rgba(255,255,255,0.8)', fontSize: 12 }}>5 quick questions to find your best fit</Text>
+            <Text style={{ color: 'rgba(255,255,255,0.8)', fontSize: 12 }}>{QUIZ.length} quick questions to find your best fit</Text>
           </View>
           <Ionicons name="chevron-forward" size={18} color={colors.white} />
         </Row>
