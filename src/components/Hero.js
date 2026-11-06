@@ -2,9 +2,8 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { Image, StyleSheet, View } from 'react-native';
 import { colors } from '../theme';
 
-// Placeholder artwork cropped from the client's mockup (archway over the sea, with the logo)
-// until they send the original high-resolution images.
-const HERO = require('../../assets/images/hero.png');
+// The client's brand artwork: archway over the sea, with the logo.
+const HERO = require('../../assets/images/hero.jpg');
 
 // Fills the space it's given, so welcome screens fit short phones without scrolling.
 export function Hero({ style }) {

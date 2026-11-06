@@ -294,10 +294,10 @@ export function ProductCover({ product, title = product?.title ?? '', height = 1
 const LOGO = require('../../assets/images/logo.png');
 const LOGO_MARK = require('../../assets/images/logo-mark.png');
 
-// Placeholder artwork cropped from the client's mockup until they send the original logo files.
+// Cut out of the client's brand artwork (assets/images/hero.jpg).
 export function Logo({ size = 40, tagline = true }) {
   const width = size * 5;
-  return <Image source={tagline ? LOGO : LOGO_MARK} style={{ width, height: width * (tagline ? 0.73 : 0.6), alignSelf: 'center' }} resizeMode="contain" accessibilityLabel="Shift & Thrive" />;
+  return <Image source={tagline ? LOGO : LOGO_MARK} style={{ width, height: width * (tagline ? 0.766 : 0.624), alignSelf: 'center' }} resizeMode="contain" accessibilityLabel="Shift & Thrive" />;
 }
 
 export function Divider({ style }) {
